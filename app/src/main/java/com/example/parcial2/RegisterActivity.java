@@ -56,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
             int tiempo = Integer.parseInt(tiempoStr);
 
             // Formato del entrenamiento
-            String registro = fecha + "|" + distancia + " km|" + tiempo + " min|" + tipo + "\n";
+            String registro = fecha + "|" + distancia + "|" + tiempo + "|" + tipo + "\n";
 
             // Guardar en archivo local
             FileOutputStream fos = openFileOutput(ARCHIVO, MODE_APPEND);
@@ -64,7 +64,6 @@ public class RegisterActivity extends AppCompatActivity {
             writer.write(registro);
             writer.close();
 
-            Log.d("ENTRENAMIENTO", "Guardado: " + registro);
 
 
 
