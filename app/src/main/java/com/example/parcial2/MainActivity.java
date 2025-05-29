@@ -1,5 +1,6 @@
 package com.example.parcial2;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -22,5 +23,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.inicializarControles();
+
+        prefs = getSharedPreferences("RunnerPrefs", MODE_PRIVATE);
+        String name = prefs.getString("name", "");
+
+        if (!name.isEmpty()) {
+            startDashboard();
+        }
+
+
+        startButton.setOnClickListener(v -> {
+            String inputName = nameInput.getText().toString();
+            prefs.edit().putString("name", inputName).apply();
+            startDashboard();
+        });
+
+
+    }
+
+    private void inicializarControles() {
+        nameInput = findViewById(R.id.nameInput);
+        startButton = findViewById(R.id.startButton);
+    }
+
+    private void startDashboard() {
+        startActivity(new Intent(this, DashboardActivity.class));
+        finish();
     }
 }
