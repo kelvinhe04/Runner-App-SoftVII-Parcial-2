@@ -43,5 +43,12 @@
         android:text="lblTipo"
         android:textSize="16sp"
         android:layout_marginBottom="20dp"/>
+    <TextView
+        android:id="@+id/lblRitmo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="lblRitmo"
+        android:textSize="16sp"
+        android:layout_marginBottom="20dp"/>
 
 </LinearLayout>

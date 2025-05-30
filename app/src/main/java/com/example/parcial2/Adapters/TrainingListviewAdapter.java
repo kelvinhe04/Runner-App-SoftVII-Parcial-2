@@ -14,6 +14,7 @@ import com.example.parcial2.Models.Training;
 import com.example.parcial2.R;
 
 import java.util.List;
+import java.util.Locale;
 
 public class TrainingListviewAdapter extends ArrayAdapter<Training> {
 
@@ -39,13 +40,25 @@ public class TrainingListviewAdapter extends ArrayAdapter<Training> {
         lblFecha.setText("\uD83D\uDCC5 " +trainings.get(position).getFecha());
 
         TextView lblDistancia = (TextView) item.findViewById(R.id.lblDistancia);
-        lblDistancia.setText("\uD83D\uDCCF "+Float.toString(trainings.get(position).getDistanciaKm())+" km");
+        float distancia = trainings.get(position).getDistanciaKm();
+        lblDistancia.setText("\uD83D\uDCCF "+distancia+" km");
 
         TextView lblTiempo = (TextView) item.findViewById(R.id.lblTiempo);
-        lblTiempo.setText("⏱\uFE0F "+Integer.toString(trainings.get(position).getTiempoMin())+" min");
+        int tiempo = trainings.get(position).getTiempoMin();
+        lblTiempo.setText("⏱\uFE0F "+tiempo+" min");
 
         TextView lblTipo= (TextView) item.findViewById(R.id.lblTipo);
         lblTipo.setText("\uD83C\uDFC3 "+trainings.get(position).getTipo());
+
+        //Calcular y mostrar ritmo
+        TextView lblRitmo = item.findViewById(R.id.lblRitmo);
+        if (distancia > 0) {
+            float ritmo = tiempo / distancia;
+            String ritmoTexto = String.format(Locale.getDefault(), "⏱ %.2f min/km", ritmo);
+            lblRitmo.setText(ritmoTexto);
+        } else {
+            lblRitmo.setText("⏱ -- min/km");
+        }
 
         return item;
     }
