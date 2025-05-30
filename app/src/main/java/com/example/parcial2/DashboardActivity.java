@@ -48,6 +48,12 @@ public class DashboardActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mostrarProgreso();  // Refrescar meta al volver
+    }
     private void inicializarControles() {
         // Enlazar vistas
         greetingTextView = findViewById(R.id.greeting);
@@ -76,11 +82,13 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
         // Extraer número de km de la meta
-        int metaKm = 0;
+        float metaKm = 0f;
         try {
-            metaKm = Integer.parseInt(metaTexto);
+
+            metaKm = Float.parseFloat(metaTexto.replaceAll("\\D+", ""));
+
         } catch (Exception e) {
-            metaKm = 0;
+            metaKm = 0f;
             Toast.makeText(this, "error en metakm.", Toast.LENGTH_SHORT).show();
         }
         if (metaKm == 0) {
@@ -91,7 +99,15 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
 
-        metaInfo.setText("Meta del mes: " + metaKm + " km");
+        if (metaKm == (int) metaKm) {
+            // Mostrar como entero
+            metaInfo.setText("Meta del mes: " + (int) metaKm + " km");
+        } else {
+            // Mostrar con 1 decimal
+            metaInfo.setText("Meta del mes: " + String.format("%.1f", metaKm) + " km");
+        }
+
+
 
         // Calcular km acumulados
         float kmActuales = calcularKmAcumulados();
@@ -101,7 +117,14 @@ public class DashboardActivity extends AppCompatActivity {
         if (faltan <= 0) {
             metaRestante.setText("¡Felicidades! Has completado tu meta del mes.");
         } else {
-            metaRestante.setText("Te faltan " + String.format("%.1f", faltan) + " km para alcanzar tu meta");
+            if (faltan == (int) faltan) {
+                // Es entero exacto, muestra sin decimales
+                metaRestante.setText("Te faltan " + (int) faltan + " km para alcanzar tu meta");
+            } else {
+                // Tiene decimales, muestra con un decimal
+                metaRestante.setText("Te faltan " + String.format("%.1f", faltan) + " km para alcanzar tu meta");
+            }
+
         }
 
 
