@@ -1,29 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="80dp">
+    android:paddingTop="120dp"
+    android:paddingLeft="80dp"
+    android:paddingRight="80dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true">>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="runner_animation.json"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_loop="true" />
 
     <TextView
         android:text="Bienvenido Corredor"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"/>
 
-    <EditText
-        android:id="@+id/nameInput"
-        android:hint="Ingresa tu nombre"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:hint="👤 Ingresa tu nombre"
+        app:startIconTint="#A2C2FA"
+        app:boxStrokeColor="#A2C2FA"
+        app:hintTextColor="#A2C2FA"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#2C3E50"/>
+        <!-- QUITADO: app:startIconTint="#A2C2FA" -->
+
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/startButton"
         android:text="Comenzar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"/>
 </LinearLayout>
