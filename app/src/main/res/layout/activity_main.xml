@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="120dp"
-    android:paddingLeft="80dp"
-    android:paddingRight="80dp"
+    android:paddingTop="60dp"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:clickable="true">>
+    android:clickable="true">
+
+
 
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="200dp"
@@ -22,7 +22,7 @@
 
     <TextView
         android:text="Bienvenido Corredor"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,10 +30,13 @@
         android:layout_marginTop="40dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="👤 Ingresa tu nombre"
+        android:layout_marginTop="40dp"
+        android:paddingHorizontal="70dp"
+        android:gravity="left"
+        android:hint="👤  Ingresa tu nombre"
         app:startIconTint="#A2C2FA"
         app:boxStrokeColor="#A2C2FA"
         app:hintTextColor="#A2C2FA"
@@ -41,6 +44,8 @@
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusBottomEnd="12dp"
+        app:endIconMode="clear_text"
+        app:endIconTint="#A2C2FA"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -49,14 +54,15 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textColor="#2C3E50"/>
-        <!-- QUITADO: app:startIconTint="#A2C2FA" -->
+
 
     </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/startButton"
         android:text="Comenzar"
+        android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="210dp"/>
 </LinearLayout>

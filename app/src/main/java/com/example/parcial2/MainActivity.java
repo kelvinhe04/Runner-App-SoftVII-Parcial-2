@@ -12,9 +12,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 public class MainActivity extends AppCompatActivity {
 
-    EditText nameInput;
+    TextInputLayout nameInputLayout;
+    TextInputEditText nameInput;
     Button startButton;
     SharedPreferences prefs;
 
@@ -33,8 +37,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
+
         startButton.setOnClickListener(v -> {
-            String inputName = nameInput.getText().toString();
+            String inputName = nameInput.getText().toString().trim();
+
+            if (inputName.isEmpty()) {
+                nameInputLayout.setError(" ");
+                return;
+            }
+
+            nameInputLayout.setError(null); // Limpia el error si todo está bien
             prefs.edit().putString("name", inputName).apply();
             startDashboard();
         });
@@ -45,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
     private void inicializarControles() {
         nameInput = findViewById(R.id.nameInput);
         startButton = findViewById(R.id.startButton);
+        nameInputLayout = findViewById(R.id.nameInputLayout);
+        nameInput = findViewById(R.id.nameInput);
     }
 
     private void startDashboard() {
