@@ -41,7 +41,14 @@ public class TrainingListviewAdapter extends ArrayAdapter<Training> {
 
         TextView lblDistancia = (TextView) item.findViewById(R.id.lblDistancia);
         float distancia = trainings.get(position).getDistanciaKm();
-        lblDistancia.setText("\uD83D\uDCCF "+distancia+" km");
+        if (distancia == (int) distancia) {
+            // Mostrar como entero
+            lblDistancia.setText("\uD83D\uDCCF "+ (int) distancia+" km");
+        } else {
+            // Mostrar con 1 decimal
+            lblDistancia.setText("\uD83D\uDCCF "+distancia+" km");
+        }
+
 
         TextView lblTiempo = (TextView) item.findViewById(R.id.lblTiempo);
         int tiempo = trainings.get(position).getTiempoMin();

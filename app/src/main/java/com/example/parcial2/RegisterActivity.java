@@ -11,6 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
+
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -18,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button saveButton;
     SharedPreferences prefs;
     private static final String ARCHIVO = "entrenamientos.txt";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,18 @@ public class RegisterActivity extends AppCompatActivity {
         saveButton.setOnClickListener(v -> guardarEntrenamiento());
     }
 
+    private boolean validarFecha(String fecha) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        formato.setLenient(false); // Muy importante para validación estricta
+
+        try {
+            formato.parse(fecha);
+            return true;  // Fecha válida
+        } catch (ParseException e) {
+            return false; // Fecha inválida
+        }
+    }
+
     private void inicializarControles() {
         // Referencias a vistas
         dateInput = findViewById(R.id.dateInput);
@@ -38,6 +57,8 @@ public class RegisterActivity extends AppCompatActivity {
         timeInput = findViewById(R.id.timeInput);
         typeInput = findViewById(R.id.typeInput);
         saveButton = findViewById(R.id.saveButton);
+
+
     }
 
     private void guardarEntrenamiento() {
@@ -48,6 +69,11 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (fecha.isEmpty() || distanciaStr.isEmpty() || tiempoStr.isEmpty() || tipo.isEmpty()) {
             Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!validarFecha(fecha)) {
+            Toast.makeText(this, "La fecha debe estar en formato dd/MM/yyyy y ser válida", Toast.LENGTH_SHORT).show();
             return;
         }
 

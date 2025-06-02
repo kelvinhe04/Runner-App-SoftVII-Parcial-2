@@ -1,8 +1,10 @@
 package com.example.parcial2;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -14,16 +16,24 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
+
+import nl.dionsegijn.konfetti.KonfettiView;
+import nl.dionsegijn.konfetti.models.Size;
+import nl.dionsegijn.konfetti.models.Shape;
+import android.graphics.Color;
+import android.os.Handler;
+import android.os.Looper;
+
 public class DashboardActivity extends AppCompatActivity {
 
-    private SharedPreferences prefs;
-    private TextView greetingTextView;
+     SharedPreferences prefs;
     Button btnRegistrar;
     Button btnFrases;
     Button btnHistorial;
     Button btnMetas;
-    TextView metaInfo, metaRestante;
+    TextView metaInfo, metaRestante, percentText, greetingTextView;
     ProgressBar metaProgressBar;
+    KonfettiView konfettiView;
 
 
 
@@ -64,6 +74,8 @@ public class DashboardActivity extends AppCompatActivity {
         metaInfo = findViewById(R.id.metaInfo);
         metaRestante = findViewById(R.id.metaRestante);
         metaProgressBar = findViewById(R.id.metaProgressBar);
+        percentText = findViewById(R.id.percentText);
+        konfettiView = findViewById(R.id.konfettiView);
 
 
         mostrarProgreso();
@@ -78,6 +90,8 @@ public class DashboardActivity extends AppCompatActivity {
             metaInfo.setText("No has definido una meta aún.");
             metaRestante.setText("");
             metaProgressBar.setProgress(0);
+            metaProgressBar.setVisibility(View.INVISIBLE);
+            percentText.setVisibility(View.INVISIBLE);
             return;
         }
 
@@ -95,6 +109,8 @@ public class DashboardActivity extends AppCompatActivity {
             metaInfo.setText("Meta inválida (0 km)");
             metaRestante.setText("Define una meta válida.");
             metaProgressBar.setProgress(0);
+            metaProgressBar.setVisibility(View.INVISIBLE);
+            percentText.setVisibility(View.INVISIBLE);
             return;
         }
 
@@ -114,15 +130,37 @@ public class DashboardActivity extends AppCompatActivity {
 
         // Calcular faltantes y progreso
         float faltan = metaKm - kmActuales;
+
+        float porcentajeTexto = (kmActuales / metaKm) * 100;
+
+        if(porcentajeTexto > 100){
+            porcentajeTexto = 100;
+
+        }else{
+            porcentajeTexto = (kmActuales / metaKm) * 100;
+
+        }
+        percentText.setText(String.format("%.0f%%", porcentajeTexto));
+
+
         if (faltan <= 0) {
             metaRestante.setText("¡Felicidades! Has completado tu meta del mes.");
+            metaProgressBar.setVisibility(View.VISIBLE);
+            percentText.setVisibility(View.VISIBLE);
         } else {
             if (faltan == (int) faltan) {
                 // Es entero exacto, muestra sin decimales
-                metaRestante.setText("Te faltan " + (int) faltan + " km para alcanzar tu meta");
+                metaRestante.setText("Te faltan " + (int) faltan + " kma para alcanzar tu meta");
+                metaProgressBar.setVisibility(View.VISIBLE);
+                percentText.setVisibility(View.VISIBLE);
+
+
+
             } else {
                 // Tiene decimales, muestra con un decimal
                 metaRestante.setText("Te faltan " + String.format("%.1f", faltan) + " km para alcanzar tu meta");
+                metaProgressBar.setVisibility(View.VISIBLE);
+                percentText.setVisibility(View.VISIBLE);
             }
 
         }
@@ -130,6 +168,34 @@ public class DashboardActivity extends AppCompatActivity {
 
         int progreso = (int)((kmActuales / metaKm) * 100);
         if (progreso > 100) progreso = 100;
+
+
+        // Animar la barra desde 0 hasta el progreso calculado en 1 segundo
+        ObjectAnimator animation = ObjectAnimator.ofInt(metaProgressBar, "progress", 0, progreso);
+        animation.setDuration(1000);  // duración en milisegundos
+        animation.start();
+
+
+        if (progreso >= 100) {
+            konfettiView.setVisibility(View.VISIBLE);
+
+            konfettiView.build()
+                    .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.BLUE, Color.RED)
+                    .setDirection(0, 359)                  // dirección en 360 grados
+                    .setSpeed(3f, 7f)                      // velocidad con rango más variado
+                    .setFadeOutEnabled(true)
+                    .setTimeToLive(3000L)                  // duración un poco más larga (3 segundos)
+                    .addShapes(Shape.RECT, Shape.CIRCLE)  // agregué triángulos para más variedad
+                    .addSizes(new Size(8, 5f), new Size(12, 7f))          // tamaños variados
+                    .setPosition(konfettiView.getWidth() / 4f, 0f)        // posición inicial variada (cuarto ancho)
+                    .stream(400, 3500L);                  // cambiar burst a stream para flujo continuo por 3.5 seg
+
+            // Ocultar el confetti después de 4 segundos para no bloquear la pantalla
+            new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                konfettiView.setVisibility(View.GONE);
+            }, 9000);
+        }
+
 
         metaProgressBar.setProgress(progreso);
     }
