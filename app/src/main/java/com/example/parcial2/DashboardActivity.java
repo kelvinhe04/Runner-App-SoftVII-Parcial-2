@@ -35,6 +35,8 @@ public class DashboardActivity extends AppCompatActivity {
     ProgressBar metaProgressBar;
     KonfettiView konfettiView;
 
+    private boolean confettiShown = false;
+
 
 
     @Override
@@ -51,7 +53,7 @@ public class DashboardActivity extends AppCompatActivity {
 
 
         // Mostrar saludo
-        greetingTextView.setText("Hola, " + nombre + "!");
+        greetingTextView.setText("Hola " + nombre + "!");
 
 
 
@@ -172,11 +174,14 @@ public class DashboardActivity extends AppCompatActivity {
 
         // Animar la barra desde 0 hasta el progreso calculado en 1 segundo
         ObjectAnimator animation = ObjectAnimator.ofInt(metaProgressBar, "progress", 0, progreso);
-        animation.setDuration(1000);  // duración en milisegundos
+        animation.setDuration(2000);  // duración en milisegundos
         animation.start();
 
 
-        if (progreso >= 100) {
+
+
+        if (progreso >= 100 && !confettiShown) {
+            confettiShown = true;
             konfettiView.setVisibility(View.VISIBLE);
 
             konfettiView.build()

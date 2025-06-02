@@ -14,112 +14,130 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="24dp"
-            android:layout_gravity="center">
+            >
 
-            <TextView
-                android:id="@+id/greeting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="Hola!"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/metaInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="30dp"
-                android:text="Meta del mes: Correr 50 km"
-                android:textSize="18sp"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/metaRestante"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Te faltan X km para alcanzar tu meta"
-                android:textSize="16sp"
-                android:gravity="center" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingVertical="10dp"
-                android:paddingHorizontal="40dp">
-
-                <ProgressBar
-                    android:id="@+id/metaProgressBar"
-                    style="?android:attr/progressBarStyleHorizontal"
-                    android:layout_width="0dp"
-                    android:layout_height="16dp"
-                    android:layout_weight="1"
-                    android:progress="0"
-                    android:max="100"
-                    android:progressDrawable="@drawable/custom_progress_bar"
-                    android:layout_marginEnd="12dp" />
+                android:layout_height="200dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/rounded_bottom_rectangle">
 
                 <TextView
-                    android:id="@+id/percentText"
+                    android:id="@+id/greeting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="0%"
-                    android:textColor="#000"
-                    android:textStyle="bold" />
+                    android:text="Hola!"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="24dp"
                 android:orientation="vertical"
 
-                android:paddingHorizontal="80dp">
+                >
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnRegister"
+                <TextView
+                    android:id="@+id/metaInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Registrar Entrenamiento"
-                    app:icon="@drawable/icon_registrar"
-                    app:iconGravity="textStart"
-                    app:iconPadding="8dp"
-                    app:iconTint="@null" />
+                    android:layout_marginTop="60dp"
+                    android:layout_marginBottom="30dp"
+                    android:gravity="center"
+                    android:text="Meta del mes: Correr 50 km"
+                    android:textSize="18sp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMotivation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Frases Motivadoras"
-                    app:icon="@drawable/icon_frases"
-                    app:iconTint="@null" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnHistory"
+                <TextView
+                    android:id="@+id/metaRestante"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:paddingVertical="15dp"
-                    android:text="Ver Historial"
-                    app:icon="@drawable/icon_historial"
-                    app:iconTint="@null" />
+                    android:gravity="center"
+                    android:text="Te faltan X km para alcanzar tu meta"
+                    android:textSize="16sp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnGoals"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Metas del Corredor"
-                    app:icon="@drawable/icon_metas"
-                    app:iconTint="@null" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="40dp"
+                    android:paddingVertical="10dp">
 
+                    <ProgressBar
+                        android:id="@+id/metaProgressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="16dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_weight="1"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/custom_progress_bar" />
+
+                    <TextView
+                        android:id="@+id/percentText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="0%"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="80dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Registrar Entrenamiento"
+                        app:icon="@drawable/icon_registrar"
+                        app:iconGravity="textStart"
+                        app:iconPadding="8dp"
+                        app:iconTint="@null" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnMotivation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Frases Motivadoras"
+                        app:icon="@drawable/icon_frases"
+                        app:iconTint="@null" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:paddingVertical="15dp"
+                        android:text="Ver Historial"
+                        app:icon="@drawable/icon_historial"
+                        app:iconTint="@null" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGoals"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Metas del Corredor"
+                        app:icon="@drawable/icon_metas"
+                        app:iconTint="@null" />
+
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
