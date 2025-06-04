@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:hint="⏱ Tiempo (min)"
+            android:hint=" ⏱  Tiempo (min)"
 
             app:boxCornerRadiusTopStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
@@ -94,6 +94,6 @@
             android:textColor="#FFF"
             android:elevation="40dp"
             app:icon="@drawable/icon_save"
-            app:iconTint="@null"/>
+            app:iconTint="@color/icon_tint_selector"/>
 
 </LinearLayout>
