@@ -1,151 +1,378 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/surface_variant">
 
-    <!-- Tu contenido va primero, atrás -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <LinearLayout
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            >
+            android:padding="16dp">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/rounded_bottom_rectangle">
-
-                <TextView
-                    android:id="@+id/greeting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hola!"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Header con saludo personalizado -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/greetingCard"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="24dp"
-                android:orientation="vertical"
-
-                >
-
-                <TextView
-                    android:id="@+id/metaInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginBottom="30dp"
-                    android:gravity="center"
-                    android:text="Meta del mes: Correr 50 km"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/metaRestante"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center"
-                    android:text="Te faltan X km para alcanzar tu meta"
-                    android:textSize="16sp" />
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeWidth="0dp"
+                android:layout_marginTop="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="40dp"
-                    android:paddingVertical="10dp">
-
-                    <ProgressBar
-                        android:id="@+id/metaProgressBar"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="0dp"
-                        android:layout_height="16dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_weight="1"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/custom_progress_bar" />
+                    android:background="@drawable/fondo_degradado"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
                     <TextView
-                        android:id="@+id/percentText"
+                        android:id="@+id/greeting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="0%"
-                        android:textColor="#000"
-                        android:textStyle="bold" />
+                        android:text="¡Hola, Corredor!"
+                        android:textColor="@color/on_primary"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/dateText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Lunes, 2 de Junio"
+                        android:textColor="@color/on_primary"
+                        android:textSize="14sp"
+                        android:alpha="0.8"
+                        tools:ignore="HardcodedText" />
+
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Tarjeta de Meta del Mes -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/goalCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/greetingCard"
+                app:strokeColor="@color/primary"
+                app:strokeWidth="2dp"
+                android:layout_marginTop="40dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
                     android:orientation="vertical"
-                    android:paddingHorizontal="80dp">
+                    android:padding="24dp"
+                    >
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnRegister"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Registrar Entrenamiento"
-                        app:icon="@drawable/icon_registrar"
-                        app:iconGravity="textStart"
-                        app:iconPadding="8dp"
-                        app:iconTint="@null" />
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnMotivation"
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/icon_target"
+                            app:tint="@color/primary"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:text="Meta del Mes"
+                            android:textColor="@color/on_surface"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/metaInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Correr 50 km"
+                        android:textColor="@color/primary"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/metaRestante"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Frases Motivadoras"
-                        app:icon="@drawable/icon_frases"
-                        app:iconTint="@null" />
+                        android:gravity="center"
+                        android:text="Te faltan 25 km para alcanzar tu meta"
+                        android:textColor="@color/on_surface_variant"
+                        android:textSize="16sp"
+                        tools:ignore="HardcodedText" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnHistory"
+                    <!-- Progreso mejorado -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:paddingVertical="15dp"
-                        android:text="Ver Historial"
-                        app:icon="@drawable/icon_historial"
-                        app:iconTint="@null" />
+                        android:layout_marginTop="20dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnGoals"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Metas del Corredor"
-                        app:icon="@drawable/icon_metas"
-                        app:iconTint="@null" />
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/metaProgressBar"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:layout_weight="1"
+                            android:max="100"
+
+                            android:progress="50"
+                            app:indicatorColor="@color/primary"
+                            app:trackColor="@color/outline"
+                            app:trackCornerRadius="8dp"
+                            app:trackThickness="12dp" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/percentRectangle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardBackgroundColor="@color/primary"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="2dp">
+
+                            <TextView
+                                android:id="@+id/percentText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="6dp"
+                                android:text="50%"
+                                android:textColor="@color/on_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
 
                 </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+            </com.google.android.material.card.MaterialCardView>
 
-    <!-- KonfettiView va *después*, encima de todo -->
+            <!-- Grid de acciones mejorado -->
+            <GridLayout
+                android:id="@+id/actionsGrid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/goalCard"
+                android:layout_marginTop="40dp">
+
+                <!-- Registrar Entrenamiento -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="@color/primary_container"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/primary_container"
+
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/btnRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/icon_registrar"
+                            app:tint="@color/on_primary_container"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="Registrar\nEntrenamiento"
+                            android:textColor="@color/on_primary_container"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Frases Motivadoras -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="@color/secondary_container"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/secondary_container"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/btnMotivation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/icon_frases"
+                            app:tint="@color/on_secondary_container"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="Frases\nMotivadoras"
+                            android:textColor="@color/on_secondary_container"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Ver Historial -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="@color/tertiary_container"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/tertiary_container"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/btnHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/icon_historial"
+                            app:tint="@color/on_tertiary_container"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="Ver\nHistorial"
+                            android:textColor="@color/on_tertiary_container"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Metas del Corredor -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="@color/error_container"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/error_container"
+                   >
+
+                    <LinearLayout
+                        android:id="@+id/btnGoals"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/icon_metas"
+                            app:tint="@color/on_error_container"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="Metas del\nCorredor"
+                            android:textColor="@color/on_error_container"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <!-- KonfettiView mantiene su posición -->
     <nl.dionsegijn.konfetti.KonfettiView
         android:id="@+id/konfettiView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible" />
-</FrameLayout>
+        android:visibility="gone" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

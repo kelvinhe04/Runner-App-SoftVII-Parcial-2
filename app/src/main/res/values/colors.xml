@@ -3,16 +3,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrimary">#A2C2FA</color>
-    <color name="colorPrimaryDark">#95A4F7</color>
-
     <color name="colorUno">#A2C2FA</color>
     <color name="colorDos">#95A4F7</color>
 
-    <!-- Material Design 3 Color System -->
 
     <!-- Primary Colors -->
-    <color name="primary">#95A4F7</color>
+    <color name="primary">#A2C2FA</color>
     <color name="on_primary">#FFFFFF</color>
     <color name="primary_container">#FFE5DB</color>
     <color name="on_primary_container">#8B2900</color>

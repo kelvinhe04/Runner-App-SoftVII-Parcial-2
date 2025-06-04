@@ -1,11 +1,13 @@
 package com.example.parcial2;
 
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,28 +17,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Size;
 import nl.dionsegijn.konfetti.models.Shape;
+
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.google.android.material.card.MaterialCardView;
+
 public class DashboardActivity extends AppCompatActivity {
 
-     SharedPreferences prefs;
-    Button btnRegistrar;
-    Button btnFrases;
-    Button btnHistorial;
-    Button btnMetas;
-    TextView metaInfo, metaRestante, percentText, greetingTextView;
+    SharedPreferences prefs;
+    LinearLayout btnRegistrar;
+    LinearLayout btnFrases;
+    LinearLayout btnHistorial;
+    LinearLayout btnMetas;
+    TextView metaInfo, metaRestante, percentText, greetingTextView, dateText;
     ProgressBar metaProgressBar;
     KonfettiView konfettiView;
 
+    MaterialCardView percentRectangle;
+
     private boolean confettiShown = false;
 
+    private int progreso;
 
 
     @Override
@@ -50,22 +61,27 @@ public class DashboardActivity extends AppCompatActivity {
 
         this.inicializarControles();
         this.irOtrasPantallas();
+        this.ObtenerFechaActual();
 
 
         // Mostrar saludo
         greetingTextView.setText("Hola " + nombre + "!");
 
 
-
-
-
     }
+
 
     @Override
     protected void onResume() {
         super.onResume();
         mostrarProgreso();  // Refrescar meta al volver
+        this.mostrarAnimacionProgreso();
+        this.ObtenerFechaActual();
+
+
     }
+
+
     private void inicializarControles() {
         // Enlazar vistas
         greetingTextView = findViewById(R.id.greeting);
@@ -76,17 +92,32 @@ public class DashboardActivity extends AppCompatActivity {
         metaInfo = findViewById(R.id.metaInfo);
         metaRestante = findViewById(R.id.metaRestante);
         metaProgressBar = findViewById(R.id.metaProgressBar);
-        percentText = findViewById(R.id.percentText);
         konfettiView = findViewById(R.id.konfettiView);
+        percentText = findViewById(R.id.percentText);
+        percentRectangle = findViewById(R.id.percentRectangle);
+        dateText = findViewById(R.id.dateText);
 
 
         mostrarProgreso();
 
 
+    }
 
+    private void ObtenerFechaActual() {
+        // Obtener la fecha actual
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d 'de' MMMM", new Locale("es", "ES"));
+        String fechaActual = dateFormat.format(new Date());
+
+// Poner la primera letra en mayúscula (opcional)
+        fechaActual = fechaActual.substring(0, 1).toUpperCase() + fechaActual.substring(1);
+
+// Mostrar la fecha en el TextView
+        dateText.setText(fechaActual);
 
     }
+
     private void mostrarProgreso() {
+
         String metaTexto = prefs.getString("meta", "");
         if (metaTexto.isEmpty()) {
             metaInfo.setText("No has definido una meta aún.");
@@ -113,6 +144,7 @@ public class DashboardActivity extends AppCompatActivity {
             metaProgressBar.setProgress(0);
             metaProgressBar.setVisibility(View.INVISIBLE);
             percentText.setVisibility(View.INVISIBLE);
+            percentRectangle.setVisibility(View.INVISIBLE);
             return;
         }
 
@@ -126,7 +158,6 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
 
-
         // Calcular km acumulados
         float kmActuales = calcularKmAcumulados();
 
@@ -135,10 +166,10 @@ public class DashboardActivity extends AppCompatActivity {
 
         float porcentajeTexto = (kmActuales / metaKm) * 100;
 
-        if(porcentajeTexto > 100){
+        if (porcentajeTexto > 100) {
             porcentajeTexto = 100;
 
-        }else{
+        } else {
             porcentajeTexto = (kmActuales / metaKm) * 100;
 
         }
@@ -149,13 +180,14 @@ public class DashboardActivity extends AppCompatActivity {
             metaRestante.setText("¡Felicidades! Has completado tu meta del mes.");
             metaProgressBar.setVisibility(View.VISIBLE);
             percentText.setVisibility(View.VISIBLE);
+            percentRectangle.setVisibility(View.VISIBLE);
         } else {
             if (faltan == (int) faltan) {
                 // Es entero exacto, muestra sin decimales
-                metaRestante.setText("Te faltan " + (int) faltan + " kma para alcanzar tu meta");
+                metaRestante.setText("Te faltan " + (int) faltan + " km para alcanzar tu meta");
                 metaProgressBar.setVisibility(View.VISIBLE);
                 percentText.setVisibility(View.VISIBLE);
-
+                percentRectangle.setVisibility(View.VISIBLE);
 
 
             } else {
@@ -163,46 +195,67 @@ public class DashboardActivity extends AppCompatActivity {
                 metaRestante.setText("Te faltan " + String.format("%.1f", faltan) + " km para alcanzar tu meta");
                 metaProgressBar.setVisibility(View.VISIBLE);
                 percentText.setVisibility(View.VISIBLE);
+                percentRectangle.setVisibility(View.VISIBLE);
             }
 
         }
 
 
-        int progreso = (int)((kmActuales / metaKm) * 100);
+        progreso = (int) ((kmActuales / metaKm) * 100);
         if (progreso > 100) progreso = 100;
 
 
-        // Animar la barra desde 0 hasta el progreso calculado en 1 segundo
-        ObjectAnimator animation = ObjectAnimator.ofInt(metaProgressBar, "progress", 0, progreso);
-        animation.setDuration(2000);  // duración en milisegundos
-        animation.start();
-
-
-
+        confettiShown = false;
 
         if (progreso >= 100 && !confettiShown) {
             confettiShown = true;
             konfettiView.setVisibility(View.VISIBLE);
 
+
             konfettiView.build()
-                    .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.BLUE, Color.RED)
+                    .addColors(
+                            Color.parseColor("#F4A7A7"),  // rosa pastel más oscuro
+                            Color.parseColor("#A7F4BE"),  // verde menta intenso
+                            Color.parseColor("#A7C7F4"),  // azul pastel más fuerte
+                            Color.parseColor("#F4E3A7"),  // amarillo cálido pastel
+                            Color.parseColor("#C8A7F4")   // lila oscuro
+                    )
+
                     .setDirection(0, 359)                  // dirección en 360 grados
                     .setSpeed(3f, 7f)                      // velocidad con rango más variado
                     .setFadeOutEnabled(true)
-                    .setTimeToLive(3000L)                  // duración un poco más larga (3 segundos)
+                    .setTimeToLive(10000L)                  // duración un poco más larga (3 segundos)
                     .addShapes(Shape.RECT, Shape.CIRCLE)  // agregué triángulos para más variedad
-                    .addSizes(new Size(8, 5f), new Size(12, 7f))          // tamaños variados
+                    .addSizes(new Size(8, 15f), new Size(12, 20f))
                     .setPosition(konfettiView.getWidth() / 4f, 0f)        // posición inicial variada (cuarto ancho)
-                    .stream(400, 3500L);                  // cambiar burst a stream para flujo continuo por 3.5 seg
+                    .stream(150, 2400L);                  // cambiar burst a stream para flujo continuo por 3.5 seg
 
-            // Ocultar el confetti después de 4 segundos para no bloquear la pantalla
-            new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                konfettiView.setVisibility(View.GONE);
-            }, 9000);
+            mostrarAnimacionProgreso();
+
+
         }
 
-
         metaProgressBar.setProgress(progreso);
+    }
+
+    private void mostrarAnimacionProgreso() {
+        // Animar la barra desde 0 hasta el progreso calculado en 1 segundo
+        ObjectAnimator animation = ObjectAnimator.ofInt(metaProgressBar, "progress", 0, progreso);
+        animation.setDuration(2000);  // duración en milisegundos
+        animation.start();
+
+        // Animación del número en el TextView
+        ValueAnimator numberAnim = ValueAnimator.ofInt(0, progreso);
+        numberAnim.setDuration(2000); // Debe ser la misma duración para que vayan sincronizados
+        numberAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int valor = (int) animation.getAnimatedValue();
+                percentText.setText(valor + "%");
+            }
+        });
+
+        numberAnim.start();
     }
 
     private float calcularKmAcumulados() {
@@ -230,11 +283,10 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
 
-
     private void irOtrasPantallas() {
         // Ir a otras pantallas
         btnRegistrar.setOnClickListener(v ->
-                startActivity(new Intent( this, RegisterActivity.class)));
+                startActivity(new Intent(this, RegisterActivity.class)));
 
         btnFrases.setOnClickListener(v ->
                 startActivity(new Intent(this, MotivationActivity.class)));
@@ -246,8 +298,6 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(this, GoalActivity.class)));
 
     }
-
-
 
 
 }
