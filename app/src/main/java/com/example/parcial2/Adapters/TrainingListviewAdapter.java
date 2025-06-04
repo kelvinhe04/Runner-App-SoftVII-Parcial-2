@@ -61,7 +61,7 @@ public class TrainingListviewAdapter extends ArrayAdapter<Training> {
         TextView lblRitmo = item.findViewById(R.id.lblRitmo);
         if (distancia > 0) {
             float ritmo = tiempo / distancia;
-            String ritmoTexto = String.format(Locale.getDefault(), "⏱ %.2f min/km", ritmo);
+            String ritmoTexto = String.format(Locale.getDefault(), " ⏱ %.2f min/km", ritmo);
             lblRitmo.setText(ritmoTexto);
         } else {
             lblRitmo.setText("⏱ -- min/km");

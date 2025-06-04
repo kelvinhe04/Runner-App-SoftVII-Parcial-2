@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="24dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true">
 
     <TextView
         android:id="@+id/currentGoalText"
@@ -14,17 +18,38 @@
         android:textStyle="bold"
         android:paddingBottom="16dp"/>
 
-    <EditText
-        android:id="@+id/goalInput"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ejemplo: Correr 50 km"
-        android:inputType="text" />
+        android:layout_marginBottom="12dp"
+        android:hint="🏁 Escribe tu meta (ej: Correr 50 km)"
 
-    <Button
+
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/goalInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/saveGoalButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar Meta"
-        android:layout_marginTop="16dp"/>
+        android:textAllCaps="false"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#FFF"
+        android:elevation="40dp"
+        app:icon="@drawable/icon_save"
+        app:iconTint="@color/icon_tint_selector"/>
+
+
 </LinearLayout>

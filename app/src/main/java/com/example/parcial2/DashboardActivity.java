@@ -73,9 +73,29 @@ public class DashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+
+
+
         super.onResume();
-        mostrarProgreso();  // Refrescar meta al volver
-        this.mostrarAnimacionProgreso();
+
+
+
+        if (MetaFlag.nuevaMeta) {
+            confettiShown = false;
+            mostrarProgreso();  // Refrescar meta al volver
+            mostrarAnimacionProgreso();
+            MetaFlag.nuevaMeta = false; // resetear la bandera
+
+
+            Toast.makeText(this, "meta nueva anadida.", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+
+
+
+
         this.ObtenerFechaActual();
 
 
@@ -205,32 +225,34 @@ public class DashboardActivity extends AppCompatActivity {
         if (progreso > 100) progreso = 100;
 
 
-        confettiShown = false;
+
 
         if (progreso >= 100 && !confettiShown) {
             confettiShown = true;
             konfettiView.setVisibility(View.VISIBLE);
 
 
-            konfettiView.build()
-                    .addColors(
-                            Color.parseColor("#F4A7A7"),  // rosa pastel más oscuro
-                            Color.parseColor("#A7F4BE"),  // verde menta intenso
-                            Color.parseColor("#A7C7F4"),  // azul pastel más fuerte
-                            Color.parseColor("#F4E3A7"),  // amarillo cálido pastel
-                            Color.parseColor("#C8A7F4")   // lila oscuro
-                    )
+            konfettiView.post(() -> {
+                konfettiView.build()
+                        .addColors(
+                                Color.parseColor("#F4A7A7"),
+                                Color.parseColor("#A7F4BE"),
+                                Color.parseColor("#A7C7F4"),
+                                Color.parseColor("#F4E3A7"),
+                                Color.parseColor("#C8A7F4")
+                        )
+                        .setDirection(0, 360)
+                        .setSpeed(3f, 7f)
+                        .setFadeOutEnabled(true)
+                        .setTimeToLive(10000L)
+                        .addShapes(Shape.RECT, Shape.CIRCLE)
+                        .addSizes(new Size(8, 15f), new Size(12, 20f))
+                        .setPosition(konfettiView.getWidth() / 2f, 0f) // ✅ centro horizontal
+                        .stream(150, 2400L); // flujo continuo
 
-                    .setDirection(0, 359)                  // dirección en 360 grados
-                    .setSpeed(3f, 7f)                      // velocidad con rango más variado
-                    .setFadeOutEnabled(true)
-                    .setTimeToLive(10000L)                  // duración un poco más larga (3 segundos)
-                    .addShapes(Shape.RECT, Shape.CIRCLE)  // agregué triángulos para más variedad
-                    .addSizes(new Size(8, 15f), new Size(12, 20f))
-                    .setPosition(konfettiView.getWidth() / 4f, 0f)        // posición inicial variada (cuarto ancho)
-                    .stream(150, 2400L);                  // cambiar burst a stream para flujo continuo por 3.5 seg
+                mostrarAnimacionProgreso(); // se llama después de iniciar el konfetti
+            });
 
-            mostrarAnimacionProgreso();
 
 
         }
