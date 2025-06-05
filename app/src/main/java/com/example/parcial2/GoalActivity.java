@@ -44,7 +44,7 @@ public class GoalActivity extends AppCompatActivity {
                 Toast.makeText(this, "Meta guardada", Toast.LENGTH_SHORT).show();
                 currentGoalText.setText("Meta actual: " + goal);
                 goalInput.setText("");
-                MetaFlag.nuevaMeta = true;
+                Flag.nuevaMeta = true;
 
 
             }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/surface_variant">
+    style="@style/FONDO_LAYOUT"
+    >
 
 
 
@@ -26,12 +27,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:strokeWidth="0dp"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="30dp">
 
                 <LinearLayout
+                    style="@style/FONDO_DEGRADADO"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/fondo_degradado"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="20dp">
@@ -51,10 +52,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
+                        android:alpha="0.8"
                         android:text="Lunes, 2 de Junio"
                         android:textColor="@color/on_primary"
                         android:textSize="14sp"
-                        android:alpha="0.8"
                         tools:ignore="HardcodedText" />
 
                 </LinearLayout>
@@ -71,15 +72,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/greetingCard"
-                app:strokeColor="@color/primary"
                 app:strokeWidth="2dp"
-                android:layout_marginTop="40dp">
+                android:layout_marginTop="40dp"
+                style="@style/META_STROKE"
+
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="24dp"
+
+
                     >
 
                     <LinearLayout
@@ -89,10 +94,10 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            style="@style/META"
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/icon_target"
-                            app:tint="@color/primary"
                             tools:ignore="ContentDescription" />
 
                         <TextView
@@ -101,7 +106,6 @@
                             android:layout_marginStart="12dp"
                             android:layout_weight="1"
                             android:text="Meta del Mes"
-                            android:textColor="@color/on_surface"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText" />
@@ -110,14 +114,14 @@
 
                     <TextView
                         android:id="@+id/metaInfo"
+                        style="@style/META"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
+                        android:gravity="center"
                         android:text="Correr 50 km"
-                        android:textColor="@color/primary"
                         android:textSize="28sp"
                         android:textStyle="bold"
-                        android:gravity="center"
                         tools:ignore="HardcodedText" />
 
                     <TextView
@@ -127,7 +131,6 @@
                         android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:text="Te faltan 25 km para alcanzar tu meta"
-                        android:textColor="@color/on_surface_variant"
                         android:textSize="16sp"
                         tools:ignore="HardcodedText" />
 
@@ -141,26 +144,23 @@
 
                         <com.google.android.material.progressindicator.LinearProgressIndicator
                             android:id="@+id/metaProgressBar"
+                            style="@style/META"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:layout_weight="1"
                             android:max="100"
-
                             android:progress="50"
-                            app:indicatorColor="@color/primary"
-                            app:trackColor="@color/outline"
                             app:trackCornerRadius="8dp"
                             app:trackThickness="12dp" />
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/percentRectangle"
+                            style="@style/META"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:cardBackgroundColor="@color/primary"
                             app:cardCornerRadius="12dp"
-                            app:cardElevation="2dp"
-                            app:strokeColor="@color/primary">
+                            app:cardElevation="2dp">
 
                             <TextView
                                 android:id="@+id/percentText"
@@ -199,27 +199,27 @@
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/primary_container"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="4dp"
-                    app:strokeColor="@color/primary_container"
-
+                    style="@style/CUADRO_GRID_1"
+                    app:strokeWidth="0dp"
                     >
 
                     <LinearLayout
                         android:id="@+id/btnRegister"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        >
 
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/icon_registrar"
-                            app:tint="@color/on_primary_container"
+                            style="@style/CUADRO_GRID_1"
                             tools:ignore="ContentDescription" />
 
                         <TextView
@@ -228,7 +228,7 @@
                             android:layout_marginTop="8dp"
                             android:gravity="center"
                             android:text="Registrar\nEntrenamiento"
-                            android:textColor="@color/on_primary_container"
+                            style="@style/CUADRO_GRID_1"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText" />
@@ -242,27 +242,29 @@
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/secondary_container"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="4dp"
-                    app:strokeColor="@color/secondary_container"
+                    style="@style/CUADRO_GRID_2"
+                    app:strokeWidth="0dp"
+
                     >
 
                     <LinearLayout
                         android:id="@+id/btnMotivation"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="16dp"
+                        android:background="?attr/selectableItemBackground"
+                        >
 
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/icon_frases"
-                            app:tint="@color/on_secondary_container"
-                            tools:ignore="ContentDescription" />
+                            tools:ignore="ContentDescription"
+                            style="@style/CUADRO_GRID_2"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -270,10 +272,10 @@
                             android:layout_marginTop="8dp"
                             android:gravity="center"
                             android:text="Frases\nMotivadoras"
-                            android:textColor="@color/on_secondary_container"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            tools:ignore="HardcodedText" />
+                            tools:ignore="HardcodedText"
+                            style="@style/CUADRO_GRID_2"/>
 
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -284,10 +286,10 @@
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/tertiary_container"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="4dp"
-                    app:strokeColor="@color/tertiary_container"
+                    style="@style/CUADRO_GRID_3"
+                    app:strokeWidth="0dp"
                     >
 
                     <LinearLayout
@@ -303,7 +305,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/icon_historial"
-                            app:tint="@color/on_tertiary_container"
+                            style="@style/CUADRO_GRID_3"
                             tools:ignore="ContentDescription" />
 
                         <TextView
@@ -312,7 +314,7 @@
                             android:layout_marginTop="8dp"
                             android:gravity="center"
                             android:text="Ver\nHistorial"
-                            android:textColor="@color/on_tertiary_container"
+                            style="@style/CUADRO_GRID_3"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText" />
@@ -326,11 +328,13 @@
                     android:layout_height="120dp"
                     android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    app:cardBackgroundColor="@color/error_container"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="4dp"
-                    app:strokeColor="@color/error_container"
-                   >
+                    style="@style/CUADRO_GRID_4"
+                    app:strokeWidth="0dp"
+
+
+                    >
 
                     <LinearLayout
                         android:id="@+id/btnGoals"
@@ -345,7 +349,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/icon_metas"
-                            app:tint="@color/on_error_container"
+                            style="@style/CUADRO_GRID_4"
                             tools:ignore="ContentDescription" />
 
                         <TextView
@@ -354,7 +358,7 @@
                             android:layout_marginTop="8dp"
                             android:gravity="center"
                             android:text="Metas del\nCorredor"
-                            android:textColor="@color/on_error_container"
+                            style="@style/CUADRO_GRID_4"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             tools:ignore="HardcodedText" />

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,8 +26,6 @@ import nl.dionsegijn.konfetti.models.Size;
 import nl.dionsegijn.konfetti.models.Shape;
 
 import android.graphics.Color;
-import android.os.Handler;
-import android.os.Looper;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -74,17 +71,32 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
 
-
-
         super.onResume();
 
 
+        if (Flag.nuevoRegistro) {
 
-        if (MetaFlag.nuevaMeta) {
-            confettiShown = false;
+
             mostrarProgreso();  // Refrescar meta al volver
             mostrarAnimacionProgreso();
-            MetaFlag.nuevaMeta = false; // resetear la bandera
+
+
+            Flag.nuevoRegistro = false; // resetear la bandera
+
+
+            Toast.makeText(this, "registro nueva anadida.", Toast.LENGTH_SHORT).show();
+        }
+
+
+
+        if (Flag.nuevaMeta) {
+            confettiShown = false;
+
+            mostrarProgreso();  // Refrescar meta al volver
+            mostrarAnimacionProgreso();
+
+
+            Flag.nuevaMeta = false; // resetear la bandera
 
 
             Toast.makeText(this, "meta nueva anadida.", Toast.LENGTH_SHORT).show();
@@ -145,6 +157,7 @@ public class DashboardActivity extends AppCompatActivity {
             metaProgressBar.setProgress(0);
             metaProgressBar.setVisibility(View.INVISIBLE);
             percentText.setVisibility(View.INVISIBLE);
+            percentRectangle.setVisibility(View.INVISIBLE);
             return;
         }
 

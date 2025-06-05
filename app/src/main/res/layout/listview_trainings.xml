@@ -13,13 +13,15 @@
         android:layout_marginHorizontal="4dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
-        android:padding="16dp">
+        android:padding="16dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            >
 
 
 
@@ -28,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="lblFecha"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:layout_marginBottom="16dp"
         android:textStyle="bold"/>
 

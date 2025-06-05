@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:clickable="true">
+    android:clickable="true"
+    style="@style/FONDO_LAYOUT">
 
     <TextView
         android:id="@+id/currentGoalText"
@@ -16,7 +17,8 @@
         android:text="Meta actual: "
         android:textSize="18sp"
         android:textStyle="bold"
-        android:paddingBottom="16dp"/>
+        android:paddingBottom="16dp"
+        android:layout_marginTop="10dp"/>
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -24,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:hint="🏁 Escribe tu meta (ej: Correr 50 km)"
-
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"

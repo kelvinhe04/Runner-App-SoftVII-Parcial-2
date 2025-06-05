@@ -62,6 +62,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void guardarEntrenamiento() {
+
+        Flag.nuevoRegistro = true;
+
         String fecha = dateInput.getText().toString().trim();
         String distanciaStr = distanceInput.getText().toString().trim();
         String tiempoStr = timeInput.getText().toString().trim();

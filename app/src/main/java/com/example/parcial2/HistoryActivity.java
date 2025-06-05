@@ -6,6 +6,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.example.parcial2.Adapters.TrainingListviewAdapter;
 import com.example.parcial2.Models.Training;
@@ -18,6 +19,7 @@ import java.util.List;
 public class HistoryActivity extends AppCompatActivity {
 
     ListView listView;
+    CardView cardViewHistorial;
     private static final String ARCHIVO = "entrenamientos.txt";
 
     @Override
@@ -26,6 +28,7 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         listView = findViewById(R.id.listView);
+        cardViewHistorial = findViewById(R.id.cardViewHistorial);
 
         cargarHistorial();
     }
@@ -57,6 +60,9 @@ public class HistoryActivity extends AppCompatActivity {
                 }
             }
             reader.close();
+
+            cardViewHistorial.setVisibility(trainings.isEmpty() ? CardView.VISIBLE : CardView.GONE);
+            listView.setVisibility(trainings.isEmpty() ? ListView.GONE : ListView.VISIBLE);
 
         } catch (Exception e) {
             Toast.makeText(this, "No hay entrenamientos registrados.", Toast.LENGTH_SHORT).show();

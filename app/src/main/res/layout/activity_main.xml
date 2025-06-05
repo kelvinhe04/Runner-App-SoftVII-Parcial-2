@@ -7,7 +7,8 @@
     android:paddingTop="60dp"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    android:clickable="true">
+    android:clickable="true"
+    style="@style/FONDO_LAYOUT">
 
 
 
@@ -36,24 +37,26 @@
         android:layout_marginTop="40dp"
         android:paddingHorizontal="70dp"
         android:gravity="left"
+        android:textColor="@color/primary"
         android:hint="👤  Ingresa tu nombre"
-        app:startIconTint="#A2C2FA"
-        app:boxStrokeColor="#A2C2FA"
-        app:hintTextColor="#A2C2FA"
+
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusBottomStart="12dp"
         app:boxCornerRadiusBottomEnd="12dp"
         app:endIconMode="clear_text"
         app:endIconTint="#A2C2FA"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+
+
+       >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#2C3E50"/>
+            android:textSize="16sp" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
