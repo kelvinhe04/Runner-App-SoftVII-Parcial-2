@@ -11,7 +11,7 @@
     </style>
 
     <style name="FONDO_LAYOUT">
-        <item name="android:background">#000000</item>
+        <item name="android:background">#091526</item>
     </style>
 
 
@@ -20,6 +20,10 @@
         <item name="android:background">@drawable/fondo_degradado_oscuro</item>
     </style>
 
+    <style name="META_BACKGROUND">
+        <item name="strokeColor">@color/colorUno_oscuro</item>
+        <item name="cardBackgroundColor">#C5152742</item>
+    </style>
 
 
     <style name="META">
@@ -32,7 +36,6 @@
 
     <style name="META_STROKE">
         <item name="strokeColor">@color/colorUno_oscuro</item>
-
     </style>
 
     <style name="CUADRO_GRID_1">

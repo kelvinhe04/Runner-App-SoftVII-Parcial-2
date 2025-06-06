@@ -25,7 +25,10 @@
 
 
 
-
+    <style name="META_BACKGROUND">
+        <item name="strokeColor">@color/primary</item>
+        <item name="cardBackgroundColor">#FFFFFF</item>
+    </style>
 
     <style name="META">
         <item name="strokeColor">@color/primary</item>

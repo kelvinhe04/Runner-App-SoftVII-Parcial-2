@@ -23,26 +23,26 @@
     <!-- Cuadro Registrar Entrenamiento -->
     <color name="cuadro_grid_1_uno">#FFE5DB</color>
     <color name="cuadro_grid_1_dos">#8B2900</color>
-    <color name="cuadro_grid_1_uno_oscuro">#E6B8A8</color>
-    <color name="cuadro_grid_1_dos_oscuro">#5C1A00</color>
+    <color name="cuadro_grid_1_uno_oscuro">#30292B</color>
+    <color name="cuadro_grid_1_dos_oscuro">#EACA97</color>
 
     <!-- Cuadro Frases Motivadoras -->
     <color name="cuadro_grid_2_uno">#CBF2CE</color>
     <color name="cuadro_grid_2_dos">#103B13</color>
-    <color name="cuadro_grid_2_uno_oscuro">#51B654</color>
-    <color name="cuadro_grid_2_dos_oscuro">#053309</color>
+    <color name="cuadro_grid_2_uno_oscuro">#2B3835</color>
+    <color name="cuadro_grid_2_dos_oscuro">#ADD5B0</color>
 
     <!-- Cuadro Ver Historial -->
     <color name="cuadro_grid_3_uno">#E3F2FD</color>
     <color name="cuadro_grid_3_dos">#0D47A1</color>
-    <color name="cuadro_grid_3_uno_oscuro">#90CAF9</color>
-    <color name="cuadro_grid_3_dos_oscuro">#082C6C</color>
+    <color name="cuadro_grid_3_uno_oscuro">#221D37</color>
+    <color name="cuadro_grid_3_dos_oscuro">#9265F5</color>
 
     <!-- Cuadro Metas del Corredor -->
     <color name="cuadro_grid_4_uno">#FFEBEE  </color>
     <color name="cuadro_grid_4_dos">#B71C1C </color>
-    <color name="cuadro_grid_4_uno_oscuro">#EF9A9A</color>
-    <color name="cuadro_grid_4_dos_oscuro">#7F0000</color>
+    <color name="cuadro_grid_4_uno_oscuro">#2C222C</color>
+    <color name="cuadro_grid_4_dos_oscuro">#C87D84</color>
 
 
 

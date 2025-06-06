@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -18,7 +19,10 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Arrays;
+
 
 
 import nl.dionsegijn.konfetti.KonfettiView;
@@ -45,6 +49,9 @@ public class DashboardActivity extends AppCompatActivity {
     private boolean confettiShown = false;
 
     private int progreso;
+
+
+
 
 
     @Override
@@ -241,30 +248,59 @@ public class DashboardActivity extends AppCompatActivity {
 
 
         if (progreso >= 100 && !confettiShown) {
+            List<Integer> konfettiColors;
             confettiShown = true;
+
             konfettiView.setVisibility(View.VISIBLE);
 
+
+            int nightModeFlags;
+            nightModeFlags = this.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+
+
+            if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
+                // 🎯 Modo oscuro: colores más tenues y contrastantes
+                konfettiColors = Arrays.asList(
+                        Color.parseColor("#EACA97"),
+                        Color.parseColor("#ADD5B0"),
+                        Color.parseColor("#9265F5"),
+                        Color.parseColor("#C87D84"),
+                        Color.parseColor("#7FC8E6")
+                );
+            } else {
+                // ☀️ Modo claro: colores más vivos
+                konfettiColors = Arrays.asList(
+                        Color.parseColor("#F4A7A7"),
+                        Color.parseColor("#A7F4BE"),
+                        Color.parseColor("#A7C7F4"),
+                        Color.parseColor("#F4E3A7"),
+                        Color.parseColor("#C8A7F4")
+                );
+            }
 
             konfettiView.post(() -> {
                 konfettiView.build()
                         .addColors(
-                                Color.parseColor("#F4A7A7"),
-                                Color.parseColor("#A7F4BE"),
-                                Color.parseColor("#A7C7F4"),
-                                Color.parseColor("#F4E3A7"),
-                                Color.parseColor("#C8A7F4")
+                                konfettiColors.get(0),
+                                konfettiColors.get(1),
+                                konfettiColors.get(2),
+                                konfettiColors.get(3),
+                                konfettiColors.get(4)
                         )
+
                         .setDirection(0, 360)
                         .setSpeed(3f, 7f)
                         .setFadeOutEnabled(true)
                         .setTimeToLive(10000L)
                         .addShapes(Shape.RECT, Shape.CIRCLE)
                         .addSizes(new Size(8, 15f), new Size(12, 20f))
-                        .setPosition(konfettiView.getWidth() / 2f, 0f) // ✅ centro horizontal
-                        .stream(150, 2400L); // flujo continuo
+                        .setPosition(konfettiView.getWidth() / 2f, 0f)
+                        .stream(150, 2400L);
 
-                mostrarAnimacionProgreso(); // se llama después de iniciar el konfetti
+                mostrarAnimacionProgreso();
             });
+
+
 
 
 

@@ -74,7 +74,8 @@
                 app:layout_constraintTop_toBottomOf="@id/greetingCard"
                 app:strokeWidth="2dp"
                 android:layout_marginTop="40dp"
-                style="@style/META_STROKE"
+                style="@style/META_BACKGROUND"
+
 
                 >
 
@@ -83,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="24dp"
+
 
 
                     >

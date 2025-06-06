@@ -51,7 +51,8 @@
         android:textColor="#FFF"
         android:elevation="40dp"
         app:icon="@drawable/icon_save"
-        app:iconTint="@color/icon_tint_selector"/>
+        app:iconTint="@color/icon_tint_selector"
+        />
 
 
 </LinearLayout>
