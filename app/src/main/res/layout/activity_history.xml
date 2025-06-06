@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back_spl"
     android:gravity="center"
-    >
+    android:orientation="vertical"
+    android:padding="16dp">
 
 
     <androidx.cardview.widget.CardView
@@ -15,9 +13,9 @@
         android:id="@+id/cardViewHistorial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginHorizontal="50dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
 
@@ -32,15 +30,14 @@
             >
 
 
-
             <TextView
                 android:id="@+id/lblEntrenamiento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="¡Sin datos! Empieza a entrenar para ver tu progreso aquí
 "
-                android:textStyle="bold"
-                android:gravity="center"/>
+                android:textStyle="bold" />
 
 
         </LinearLayout>
@@ -53,6 +50,5 @@
         android:layout_height="match_parent"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
 </LinearLayout>
