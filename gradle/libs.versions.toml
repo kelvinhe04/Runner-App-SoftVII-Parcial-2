@@ -9,7 +9,6 @@ activity = "1.10.1"
 constraintlayout = "2.2.1"
 lottie = "3.0.1"#se anadio la version de la libreria
 konfetti = "1.2.5"
-coordinatorlayout  = "1.2.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -24,7 +23,6 @@ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayo
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie"}
 
 konfetti = { group = "nl.dionsegijn", name = "konfetti", version.ref = "konfetti" }
-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
