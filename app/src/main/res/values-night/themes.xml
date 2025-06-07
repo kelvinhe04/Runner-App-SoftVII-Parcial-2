@@ -66,13 +66,14 @@
 
 
     <style name="TEXT_TITLE_COLOR_HISTORY">
-        <item name="android:textColor">#FAFAFA
-        </item>
+        <item name="android:textColor">#FAFAFA</item>
     </style>
-    <style name="TEXT_SUBTITLECOLOR_HISTORY">
-        <item name="android:textColor">#CCCCCC
+    <style name="TEXT_SUBTITLE_COLOR_HISTORY">
+        <item name="android:textColor">#CCCCCC</item>
+    </style>
 
-        </item>
+    <style name="TRASH_CAN">
+        <item name="tint">#CCCCCC</item>
     </style>
 
 

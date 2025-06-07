@@ -70,8 +70,12 @@
     <style name="TEXT_TITLE_COLOR_HISTORY">
         <item name="android:textColor">#212121</item>
     </style>
-    <style name="TEXT_SUBTITLECOLOR_HISTORY">
+    <style name="TEXT_SUBTITLE_COLOR_HISTORY">
         <item name="android:textColor">#616161</item>
+    </style>
+
+    <style name="TRASH_CAN">
+        <item name="tint">#E8645D</item>
     </style>
 
 
