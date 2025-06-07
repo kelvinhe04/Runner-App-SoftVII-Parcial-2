@@ -24,7 +24,6 @@ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayo
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie"}
 
 konfetti = { group = "nl.dionsegijn", name = "konfetti", version.ref = "konfetti" }
-coordinatorlayout = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "coordinatorlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
