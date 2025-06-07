@@ -38,9 +38,7 @@
         <item name="android:textColor">@color/primary</item>
     </style>
 
-    <style name="META_STROKE">
-        <item name="strokeColor">@color/primary</item>
-    </style>
+
 
 
     <style name="CUADRO_GRID_1">

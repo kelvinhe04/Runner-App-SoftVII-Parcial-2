@@ -27,16 +27,13 @@
 
 
     <style name="META">
-        <item name="strokeColor">@color/colorUno_oscuro</item>
         <item name="tint">@color/colorUno_oscuro</item> // Color del ícon
         <item name="indicatorColor">@color/colorUno_oscuro</item>
         <item name="cardBackgroundColor">@color/colorUno_oscuro</item>
         <item name="android:textColor">@color/colorUno_oscuro</item>
     </style>
 
-    <style name="META_STROKE">
-        <item name="strokeColor">@color/colorUno_oscuro</item>
-    </style>
+
 
     <style name="CUADRO_GRID_1">
         <item name="strokeColor">@color/cuadro_grid_1_uno</item>

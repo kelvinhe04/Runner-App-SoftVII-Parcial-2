@@ -36,7 +36,6 @@ dependencies {
 
     //libreria para las animaaciones
     implementation(libs.lottie) //codigo que agregue, tuve que agregarlo en el archivo libs.versions.toml para poder usar esto aqui
-    implementation(libs.coordinatorlayout)  // Necesario para CoordinatorLayout
 
     implementation(libs.appcompat)
     implementation(libs.material)
