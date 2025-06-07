@@ -81,7 +81,7 @@ public class DashboardActivity extends AppCompatActivity {
         super.onResume();
 
 
-        if (Flag.nuevoRegistro) {
+        if (Flag.nuevoRegistro && !confettiShown) {
 
 
             mostrarProgreso();  // Refrescar meta al volver
@@ -162,9 +162,9 @@ public class DashboardActivity extends AppCompatActivity {
             metaInfo.setText("No has definido una meta aún.");
             metaRestante.setText("");
             metaProgressBar.setProgress(0);
-            metaProgressBar.setVisibility(View.INVISIBLE);
-            percentText.setVisibility(View.INVISIBLE);
-            percentRectangle.setVisibility(View.INVISIBLE);
+            metaProgressBar.setVisibility(View.GONE);
+            percentText.setVisibility(View.GONE);
+            percentRectangle.setVisibility(View.GONE);
             return;
         }
 
@@ -178,15 +178,7 @@ public class DashboardActivity extends AppCompatActivity {
             metaKm = 0f;
             Toast.makeText(this, "error en metakm.", Toast.LENGTH_SHORT).show();
         }
-        if (metaKm == 0) {
-            metaInfo.setText("Meta inválida (0 km)");
-            metaRestante.setText("Define una meta válida.");
-            metaProgressBar.setProgress(0);
-            metaProgressBar.setVisibility(View.INVISIBLE);
-            percentText.setVisibility(View.INVISIBLE);
-            percentRectangle.setVisibility(View.INVISIBLE);
-            return;
-        }
+
 
 
         if (metaKm == (int) metaKm) {
@@ -217,7 +209,7 @@ public class DashboardActivity extends AppCompatActivity {
 
 
         if (faltan <= 0) {
-            metaRestante.setText("¡Felicidades! Has completado tu meta del mes.");
+            metaRestante.setText("¡Felicidades! \n\nHas completado tu meta del mes.");
             metaProgressBar.setVisibility(View.VISIBLE);
             percentText.setVisibility(View.VISIBLE);
             percentRectangle.setVisibility(View.VISIBLE);

@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-            Toast.makeText(this, "Entrenamiento guardado correctamente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Entrenamiento guardado", Toast.LENGTH_SHORT).show();
             finish();
 
         } catch (NumberFormatException e) {

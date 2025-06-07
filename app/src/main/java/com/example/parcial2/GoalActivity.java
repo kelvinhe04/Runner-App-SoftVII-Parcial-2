@@ -36,15 +36,21 @@ public class GoalActivity extends AppCompatActivity {
 
         // Guardar nueva meta
         saveGoalButton.setOnClickListener(v -> {
+            String meta = prefs.getString("meta", " ");
             String goal = goalInput.getText().toString().trim();
             if (goal.isEmpty()) {
                 Toast.makeText(this, "Ingresa una meta válida", Toast.LENGTH_SHORT).show();
+            }else if(goal.equals(meta)){
+                Toast.makeText(this, "La meta no ha cambiado", Toast.LENGTH_SHORT).show();
+            }else if(goal.equals("0")){
+                Toast.makeText(this, "La meta no puede ser 0", Toast.LENGTH_SHORT).show();
             } else {
                 prefs.edit().putString("meta", goal).apply();
                 Toast.makeText(this, "Meta guardada", Toast.LENGTH_SHORT).show();
                 currentGoalText.setText("Meta actual: " + goal);
                 goalInput.setText("");
                 Flag.nuevaMeta = true;
+                finish();
 
 
             }
