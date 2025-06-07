@@ -28,6 +28,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:strokeWidth="0dp"
                 android:layout_marginTop="30dp">
+                
 
                 <LinearLayout
                     style="@style/FONDO_DEGRADADO"
@@ -162,7 +163,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:cardCornerRadius="12dp"
-                            app:cardElevation="2dp">
+                            app:cardElevation="2dp"
+                            >
 
                             <TextView
                                 android:id="@+id/percentText"
