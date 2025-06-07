@@ -13,7 +13,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+
+            >
 
             <!-- Header con saludo personalizado -->
             <com.google.android.material.card.MaterialCardView
@@ -22,12 +23,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
+                app:cardElevation="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:strokeWidth="0dp"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="35dp"
+                android:layout_marginHorizontal="16dp">
                 
 
                 <LinearLayout
@@ -76,6 +78,7 @@
                 app:strokeWidth="2dp"
                 android:layout_marginTop="40dp"
                 style="@style/META_BACKGROUND"
+                android:layout_marginHorizontal="16dp"
 
 
                 >
@@ -185,29 +188,30 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Grid de acciones mejorado -->
-            <GridLayout
-                android:id="@+id/actionsGrid"
-                android:layout_width="0dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/actionsGridContainer"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:rowCount="2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="40dp"
+                android:padding="16dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
                 app:layout_constraintTop_toBottomOf="@id/goalCard"
-                android:layout_marginTop="40dp">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
 
                 <!-- Registrar Entrenamiento -->
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
+                    android:id="@+id/card1"
+                    android:layout_width="160dp"
                     android:layout_height="120dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    style="@style/CUADRO_GRID_1"
+                    app:cardElevation="6dp"
                     app:strokeWidth="0dp"
-                    >
+                    style="@style/CUADRO_GRID_1">
 
                     <LinearLayout
                         android:id="@+id/btnRegister"
@@ -217,14 +221,15 @@
                         android:orientation="vertical"
                         android:padding="16dp"
                         android:background="?attr/selectableItemBackground"
+
                         >
 
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/icon_registrar"
-                            style="@style/CUADRO_GRID_1"
-                            tools:ignore="ContentDescription" />
+                            tools:ignore="ContentDescription"
+                            style="@style/CUADRO_GRID_1"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -232,26 +237,23 @@
                             android:layout_marginTop="8dp"
                             android:gravity="center"
                             android:text="Registrar\nEntrenamiento"
-                            style="@style/CUADRO_GRID_1"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            tools:ignore="HardcodedText" />
-
+                            tools:ignore="HardcodedText"
+                            style="@style/CUADRO_GRID_1"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Frases Motivadoras -->
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
+                    android:id="@+id/card2"
+                    android:layout_width="160dp"
                     android:layout_height="120dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    style="@style/CUADRO_GRID_2"
-                    app:strokeWidth="0dp"
 
-                    >
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="6dp"
+                    app:strokeWidth="0dp"
+                    style="@style/CUADRO_GRID_2">
 
                     <LinearLayout
                         android:id="@+id/btnMotivation"
@@ -260,8 +262,7 @@
                         android:gravity="center"
                         android:orientation="vertical"
                         android:padding="16dp"
-                        android:background="?attr/selectableItemBackground"
-                        >
+                        android:background="?attr/selectableItemBackground">
 
                         <ImageView
                             android:layout_width="32dp"
@@ -280,37 +281,35 @@
                             android:textStyle="bold"
                             tools:ignore="HardcodedText"
                             style="@style/CUADRO_GRID_2"/>
-
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Ver Historial -->
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
+                    android:id="@+id/card3"
+                    android:layout_width="160dp"
                     android:layout_height="120dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    style="@style/CUADRO_GRID_3"
+                    app:cardElevation="6dp"
                     app:strokeWidth="0dp"
-                    >
+                    style="@style/CUADRO_GRID_3">
 
                     <LinearLayout
                         android:id="@+id/btnHistory"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="16dp"
+                        android:background="?attr/selectableItemBackground">
 
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/icon_historial"
-                            style="@style/CUADRO_GRID_3"
-                            tools:ignore="ContentDescription" />
+                            tools:ignore="ContentDescription"
+                            style="@style/CUADRO_GRID_3"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -318,43 +317,39 @@
                             android:layout_marginTop="8dp"
                             android:gravity="center"
                             android:text="Ver\nHistorial"
-                            style="@style/CUADRO_GRID_3"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            tools:ignore="HardcodedText" />
-
+                            tools:ignore="HardcodedText"
+                            style="@style/CUADRO_GRID_3"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <!-- Metas del Corredor -->
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
+                    android:id="@+id/card4"
+                    android:layout_width="160dp"
                     android:layout_height="120dp"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="8dp"
+
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    style="@style/CUADRO_GRID_4"
+                    app:cardElevation="6dp"
                     app:strokeWidth="0dp"
-
-
-                    >
+                    style="@style/CUADRO_GRID_4">
 
                     <LinearLayout
                         android:id="@+id/btnGoals"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="?attr/selectableItemBackground"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="16dp"
+                        android:background="?attr/selectableItemBackground">
 
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/icon_metas"
-                            style="@style/CUADRO_GRID_4"
-                            tools:ignore="ContentDescription" />
+                            tools:ignore="ContentDescription"
+                            style="@style/CUADRO_GRID_4"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -362,15 +357,28 @@
                             android:layout_marginTop="8dp"
                             android:gravity="center"
                             android:text="Metas del\nCorredor"
-                            style="@style/CUADRO_GRID_4"
                             android:textSize="12sp"
                             android:textStyle="bold"
-                            tools:ignore="HardcodedText" />
-
+                            tools:ignore="HardcodedText"
+                            style="@style/CUADRO_GRID_4"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-            </GridLayout>
+                <!-- Flow helper -->
+                <androidx.constraintlayout.helper.widget.Flow
+                    android:id="@+id/flow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:flow_wrapMode="chain"
+                    app:flow_horizontalGap="16dp"
+                    app:flow_verticalGap="16dp"
+                    app:flow_maxElementsWrap="2"
+                    app:constraint_referenced_ids="card1,card2,card3,card4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
