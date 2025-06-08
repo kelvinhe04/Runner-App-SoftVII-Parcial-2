@@ -17,10 +17,10 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextInputLayout nameInputLayout;
-    TextInputEditText nameInput;
-    Button startButton;
-    SharedPreferences prefs;
+    private TextInputLayout nameInputLayout;
+    private TextInputEditText nameInput;
+    private Button startButton;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

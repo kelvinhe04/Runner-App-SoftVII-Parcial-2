@@ -20,10 +20,12 @@ import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText dateInput, distanceInput, timeInput, typeInput;
-    Button saveButton;
-    SharedPreferences prefs;
+    private EditText dateInput, distanceInput, timeInput, typeInput;
+    private Button saveButton;
     private static final String ARCHIVO = "entrenamientos.txt";
+
+    private Toast toastActivo;
+
 
 
     @Override
@@ -33,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         this.inicializarControles();
 
-        prefs = getSharedPreferences("RunnerPrefs", MODE_PRIVATE);
 
         saveButton.setOnClickListener(v -> guardarEntrenamiento());
     }
@@ -61,6 +62,15 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    private void mostrarToastUnico(String mensaje) {
+        if (toastActivo != null) {
+            toastActivo.cancel(); // Cancela el anterior si aún está visible
+        }
+        toastActivo = Toast.makeText(this, mensaje, Toast.LENGTH_SHORT);
+        toastActivo.show();
+    }
+
+
     private void guardarEntrenamiento() {
 
         Flag.nuevoRegistro = true;
@@ -71,18 +81,25 @@ public class RegisterActivity extends AppCompatActivity {
         String tipo = typeInput.getText().toString().trim();
 
         if (fecha.isEmpty() || distanciaStr.isEmpty() || tiempoStr.isEmpty() || tipo.isEmpty()) {
-            Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+            mostrarToastUnico("Completa todos los campos");
             return;
         }
 
+
         if (!validarFecha(fecha)) {
-            Toast.makeText(this, "La fecha debe estar en formato dd/MM/yyyy y ser válida", Toast.LENGTH_SHORT).show();
+            mostrarToastUnico("La fecha debe estar en formato dd/MM/yyyy y ser válida");
             return;
         }
 
         try {
             float distancia = Float.parseFloat(distanciaStr);
             int tiempo = Integer.parseInt(tiempoStr);
+
+            // Validación: distancia y tiempo deben ser mayores a 0
+            if (distancia <= 0 || tiempo <= 0) {
+                mostrarToastUnico("La distancia y el tiempo deben ser mayores a 0");
+                return;
+            }
 
             // Formato del entrenamiento
             String registro = fecha + "|" + distancia + "|" + tiempo + "|" + tipo + "\n";

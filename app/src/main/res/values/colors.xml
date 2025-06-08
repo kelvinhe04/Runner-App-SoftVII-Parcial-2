@@ -12,12 +12,7 @@
 
     <!-- Primary Colors -->
     <color name="primary">#A2C2FA</color>
-
-
     <color name="on_primary">#FFFFFF</color>
-
-
-
 
 
     <!-- Cuadro Registrar Entrenamiento -->
@@ -39,28 +34,16 @@
     <color name="cuadro_grid_3_dos_oscuro">#9265F5</color>
 
     <!-- Cuadro Metas del Corredor -->
-    <color name="cuadro_grid_4_uno">#FFEBEE  </color>
-    <color name="cuadro_grid_4_dos">#B71C1C </color>
+    <color name="cuadro_grid_4_uno">#FFEBEE</color>
+    <color name="cuadro_grid_4_dos">#B71C1C</color>
     <color name="cuadro_grid_4_uno_oscuro">#2C222C</color>
     <color name="cuadro_grid_4_dos_oscuro">#C87D84</color>
 
-
-
-    <!-- Surface Colors -->
-    <color name="surface">#FFFFFF</color>
-    <color name="on_surface">#1C1B1F</color>
-    <color name="surface_variant">#F3F3F3</color>
-    <color name="on_surface_variant">#49454F</color>
-
-    <!-- Outline -->
-    <color name="outline">#79747E</color>
-    <color name="outline_variant">#CAC4D0</color>
-
-    <!-- Background -->
-    <color name="background">#FFFBFE</color>
-    <color name="background_dark">#111</color>
-    <color name="on_background">#1C1B1F</color>
-
+    <!-- Cuadro logout -->
+    <color name="cuadro_grid_5_uno">@color/primary</color>
+    <color name="cuadro_grid_5_dos">@color/white</color>
+    <color name="cuadro_grid_5_uno_oscuro">#C5152742</color>
+    <color name="cuadro_grid_5_dos_oscuro">#5C8FD8</color>
 
 
 </resources>
