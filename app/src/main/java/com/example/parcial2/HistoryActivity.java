@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.parcial2.Adapters.OnTrainingRemovedListener;
 import com.example.parcial2.Adapters.TrainingListviewAdapter;
 import com.example.parcial2.Models.Training;
 
@@ -16,7 +17,13 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistoryActivity extends AppCompatActivity {
+import android.view.View;
+
+
+public class HistoryActivity extends AppCompatActivity implements OnTrainingRemovedListener {
+
+    private TrainingListviewAdapter adapter;
+
 
     ListView listView;
     CardView cardViewHistorial;
@@ -33,8 +40,18 @@ public class HistoryActivity extends AppCompatActivity {
         cargarHistorial();
     }
 
+    @Override
+    public void onTrainingRemoved() {
+        if (adapter.isEmpty()) {
+            listView.setVisibility(View.GONE);
+            cardViewHistorial.setVisibility(View.VISIBLE);
+        }
+    }
+
+
     private void cargarHistorial() {
         List<Training> trainings= new ArrayList<>();
+
 
 
         try {
@@ -69,7 +86,8 @@ public class HistoryActivity extends AppCompatActivity {
         }
 
 
-        TrainingListviewAdapter adapter = new TrainingListviewAdapter(getApplicationContext(),trainings);
+        adapter = new TrainingListviewAdapter(this, trainings); // usamos "this" porque esta clase implementa OnTrainingRemovedListener
+        adapter.setOnTrainingRemovedListener(this);
         listView.setAdapter(adapter);
 
     }

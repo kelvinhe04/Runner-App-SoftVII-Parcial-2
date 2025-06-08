@@ -25,9 +25,16 @@ import java.util.Locale;
 
 public class TrainingListviewAdapter extends ArrayAdapter<Training> {
 
+    private OnTrainingRemovedListener listener;  // <-- atributo listener
+
+
     private final Context context;
     private final List<Training> trainings;
     private final String ARCHIVO = "entrenamientos.txt";
+
+    public void setOnTrainingRemovedListener(OnTrainingRemovedListener listener) {
+        this.listener = listener;  // <-- método setter para el listener
+    }
 
     public TrainingListviewAdapter(@NonNull Context context, @NonNull List<Training> trainings) {
         super(context, R.layout.listview_trainings, trainings);
@@ -83,6 +90,10 @@ public class TrainingListviewAdapter extends ArrayAdapter<Training> {
                 trainings.remove(position);
                 Toast.makeText(context, "Entrenamiento eliminado", Toast.LENGTH_SHORT).show();
                 notifyDataSetChanged();
+
+                if (listener != null) {
+                    listener.onTrainingRemoved();  // notifica a la Activity
+                }
             }
         });
 
