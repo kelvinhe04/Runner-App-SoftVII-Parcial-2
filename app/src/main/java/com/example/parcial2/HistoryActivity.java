@@ -45,6 +45,7 @@ public class HistoryActivity extends AppCompatActivity implements OnTrainingRemo
         if (adapter.isEmpty()) {
             listView.setVisibility(View.GONE);
             cardViewHistorial.setVisibility(View.VISIBLE);
+            Flag.sinRegistros = true;
         }
     }
 

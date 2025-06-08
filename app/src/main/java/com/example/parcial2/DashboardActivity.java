@@ -79,6 +79,13 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onResume() {
 
         super.onResume();
+        if(Flag.sinRegistros){
+            mostrarProgreso();  // Refrescar meta al volver
+            mostrarAnimacionProgreso();
+            Flag.sinRegistros = false;
+
+        }
+
 
 
         if (Flag.nuevoRegistro && !confettiShown) {
@@ -119,6 +126,8 @@ public class DashboardActivity extends AppCompatActivity {
 
 
     }
+
+
 
 
     private void inicializarControles() {

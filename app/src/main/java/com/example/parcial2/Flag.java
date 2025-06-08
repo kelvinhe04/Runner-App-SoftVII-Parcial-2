@@ -5,5 +5,9 @@ public class Flag {
         public static boolean nuevaMeta = false;
         public static boolean nuevoRegistro = false;
 
+        public static boolean sinRegistros = false;
+
+
+
 
 }
