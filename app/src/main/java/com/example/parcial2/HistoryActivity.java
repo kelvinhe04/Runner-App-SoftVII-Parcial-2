@@ -25,8 +25,8 @@ public class HistoryActivity extends AppCompatActivity implements OnTrainingRemo
     private TrainingListviewAdapter adapter;
 
 
-    ListView listView;
-    CardView cardViewHistorial;
+    private ListView listView;
+    private CardView cardViewHistorial;
     private static final String ARCHIVO = "entrenamientos.txt";
 
     @Override

@@ -2,6 +2,7 @@ package com.example.parcial2;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -12,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
@@ -32,19 +34,22 @@ import nl.dionsegijn.konfetti.models.Shape;
 import android.graphics.Color;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    SharedPreferences prefs;
-    LinearLayout btnRegistrar;
-    LinearLayout btnFrases;
-    LinearLayout btnHistorial;
-    LinearLayout btnMetas;
-    TextView metaInfo, metaRestante, percentText, greetingTextView, dateText;
-    ProgressBar metaProgressBar;
-    KonfettiView konfettiView;
+    private SharedPreferences prefs;
+    private LinearLayout btnRegistrar;
+    private LinearLayout btnFrases;
+    private LinearLayout btnHistorial;
+    private LinearLayout btnMetas;
+    private LinearLayout btnLogOut;
 
-    MaterialCardView percentRectangle;
+    private TextView metaInfo, metaRestante, percentText, greetingTextView, dateText;
+    private ProgressBar metaProgressBar;
+    private KonfettiView konfettiView;
+
+    private MaterialCardView percentRectangle;
 
     private boolean confettiShown = false;
 
@@ -70,6 +75,9 @@ public class DashboardActivity extends AppCompatActivity {
 
         // Mostrar saludo
         greetingTextView.setText("Hola " + nombre + "!");
+
+        this.LogOut();
+
 
 
     }
@@ -126,9 +134,27 @@ public class DashboardActivity extends AppCompatActivity {
         this.ObtenerFechaActual();
 
 
+
+
     }
 
+    private void LogOut() {
+        btnLogOut.setOnClickListener(v -> {
+            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(DashboardActivity.this, R.style.RoundedAlertDialog);
+            builder.setTitle("¿Deseas cerrar sesión?")
+                    .setMessage("Esto borrará el usuario actual y todos los registros guardados. Tendrás que iniciar sesión nuevamente con otro usuario.")
+                    .setPositiveButton("Sí", (dialog, which) -> {
+                        borrarDatosDelUsuario();
+                        Toast.makeText(DashboardActivity.this, "Usuario y registros eliminados", Toast.LENGTH_SHORT).show();
 
+                        Intent intent = new Intent(DashboardActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    })
+                    .setNegativeButton("Cancelar", null)
+                    .show();
+        });
+    }
 
 
     private void inicializarControles() {
@@ -145,12 +171,23 @@ public class DashboardActivity extends AppCompatActivity {
         percentText = findViewById(R.id.percentText);
         percentRectangle = findViewById(R.id.percentRectangle);
         dateText = findViewById(R.id.dateText);
+        btnLogOut = findViewById(R.id.btnLogOut);
+
 
 
         mostrarProgreso();
 
 
     }
+
+    private void borrarDatosDelUsuario() {
+        SharedPreferences prefs = getSharedPreferences("RunnerPrefs", MODE_PRIVATE);
+        prefs.edit().clear().apply(); // Borra todos los datos del usuario
+
+        // Si también guardas entrenamientos u otros datos en archivos:
+        deleteFile("entrenamientos.txt"); // Si usas este archivo, bórralo también
+    }
+
 
     private void ObtenerFechaActual() {
         // Obtener la fecha actual

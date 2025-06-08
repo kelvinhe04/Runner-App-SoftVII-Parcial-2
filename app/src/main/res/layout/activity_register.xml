@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="320dp"
-            android:hint="🏃 Entrenamiento (ej. fondo, series, trote)"
+            android:hint="🏃 Entrenamiento (fondo, series, trote)"
             app:boxCornerRadiusTopStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"

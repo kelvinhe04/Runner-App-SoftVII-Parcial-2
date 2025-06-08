@@ -27,32 +27,35 @@
 
 
     <style name="META">
-        <item name="tint">@color/colorUno_oscuro</item> // Color del ícon
+        <item name="tint">@color/colorUno_oscuro</item>
+        // Color del ícon
         <item name="indicatorColor">@color/colorUno_oscuro</item>
         <item name="cardBackgroundColor">@color/colorUno_oscuro</item>
         <item name="android:textColor">@color/colorUno_oscuro</item>
     </style>
 
 
-
     <style name="CUADRO_GRID_1">
         <item name="strokeColor">@color/cuadro_grid_1_uno</item>
         <item name="cardBackgroundColor">@color/cuadro_grid_1_uno_oscuro</item>
-        <item name="tint">@color/cuadro_grid_1_dos_oscuro</item> // Color del ícono
+        <item name="tint">@color/cuadro_grid_1_dos_oscuro</item>
+        // Color del ícono
         <item name="android:textColor">@color/cuadro_grid_1_dos_oscuro</item>
     </style>
 
     <style name="CUADRO_GRID_2">
         <item name="strokeColor">@color/cuadro_grid_2_uno</item>
         <item name="cardBackgroundColor">@color/cuadro_grid_2_uno_oscuro</item>
-        <item name="tint">@color/cuadro_grid_2_dos_oscuro</item> // Color del ícono
+        <item name="tint">@color/cuadro_grid_2_dos_oscuro</item>
+        // Color del ícono
         <item name="android:textColor">@color/cuadro_grid_2_dos_oscuro</item>
     </style>
 
     <style name="CUADRO_GRID_3">
         <item name="strokeColor">@color/cuadro_grid_3_uno</item>
         <item name="cardBackgroundColor">@color/cuadro_grid_3_uno_oscuro</item>
-        <item name="tint">@color/cuadro_grid_3_dos_oscuro</item> // Color del ícono
+        <item name="tint">@color/cuadro_grid_3_dos_oscuro</item>
+        // Color del ícono
         <item name="android:textColor">@color/cuadro_grid_3_dos_oscuro</item>
     </style>
 
@@ -60,14 +63,24 @@
     <style name="CUADRO_GRID_4">
         <item name="strokeColor">@color/cuadro_grid_4_uno</item>
         <item name="cardBackgroundColor">@color/cuadro_grid_4_uno_oscuro</item>
-        <item name="tint">@color/cuadro_grid_4_dos_oscuro</item> // Color del ícono
+        <item name="tint">@color/cuadro_grid_4_dos_oscuro</item>
+        // Color del ícono
         <item name="android:textColor">@color/cuadro_grid_4_dos_oscuro</item>
+    </style>
+
+    <style name="CUADRO_GRID_5">
+        <item name="strokeColor">@color/cuadro_grid_5_uno</item>
+        <item name="cardBackgroundColor">@color/cuadro_grid_5_uno_oscuro</item>
+        <item name="tint">@color/cuadro_grid_5_dos_oscuro</item>
+        // Color del ícono
+        <item name="android:textColor">@color/cuadro_grid_5_dos_oscuro</item>
     </style>
 
 
     <style name="TEXT_TITLE_COLOR_HISTORY">
         <item name="android:textColor">@color/colorUno_oscuro</item>
     </style>
+
     <style name="TEXT_SUBTITLE_COLOR_HISTORY">
         <item name="android:textColor">#DEDEDE</item>
     </style>
@@ -75,11 +88,6 @@
     <style name="TRASH_CAN">
         <item name="tint">#DEDEDE</item>
     </style>
-
-    
-
-
-
 
 
 </resources>
