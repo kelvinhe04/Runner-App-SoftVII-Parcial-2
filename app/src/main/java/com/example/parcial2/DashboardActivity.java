@@ -90,6 +90,8 @@ public class DashboardActivity extends AppCompatActivity {
 
         if (Flag.nuevoRegistro && !confettiShown) {
 
+            confettiShown = false;
+
 
             mostrarProgreso();  // Refrescar meta al volver
             mostrarAnimacionProgreso();
@@ -98,7 +100,6 @@ public class DashboardActivity extends AppCompatActivity {
             Flag.nuevoRegistro = false; // resetear la bandera
 
 
-            Toast.makeText(this, "registro nueva anadida.", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -113,7 +114,7 @@ public class DashboardActivity extends AppCompatActivity {
             Flag.nuevaMeta = false; // resetear la bandera
 
 
-            Toast.makeText(this, "meta nueva anadida.", Toast.LENGTH_SHORT).show();
+
         }
 
 
