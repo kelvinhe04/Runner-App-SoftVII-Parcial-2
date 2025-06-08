@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.parcial2.Flag;
 import com.example.parcial2.Models.Training;
 import com.example.parcial2.R;
 
@@ -93,7 +94,11 @@ public class TrainingListviewAdapter extends ArrayAdapter<Training> {
 
                 if (listener != null) {
                     listener.onTrainingRemoved();  // notifica a la Activity
+
+
                 }
+
+                Flag.sinRegistros = true;
             }
         });
 
