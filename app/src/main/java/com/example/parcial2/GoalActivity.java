@@ -39,12 +39,14 @@ public class GoalActivity extends AppCompatActivity {
 
         // Guardar nueva meta
         saveGoalButton.setOnClickListener(v -> {
-            String meta = prefs.getString("meta", " ");
+            String metaActual = prefs.getString("meta", " ");
             String goal = goalInput.getText().toString().trim();
 
             if (goal.isEmpty()) {
                 mostrarToastUnico("Ingresa una meta válida");
-            } else if (goal.equals(meta)) {
+            } else if (!goal.matches(".*\\d.*")) {
+                mostrarToastUnico("La meta debe contener al menos un número");
+            } else if (goal.equals(metaActual)) {
                 mostrarToastUnico("La meta no ha cambiado");
             } else if (goal.equals("0")) {
                 mostrarToastUnico("La meta no puede ser 0");
@@ -57,6 +59,7 @@ public class GoalActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
     }
     private void inicializarControles() {
