@@ -52,7 +52,7 @@ public class TrainingListviewAdapter extends ArrayAdapter<Training> {
         Training training = trainings.get(position);
 
         TextView lblEntrenamiento = item.findViewById(R.id.lblEntrenamiento);
-        lblEntrenamiento.setText("Entrenamiento " + (position + 1));
+        lblEntrenamiento.setText(training.getTipo());
 
         TextView lblFecha = item.findViewById(R.id.lblFecha);
         lblFecha.setText("Fecha:  " + training.getFecha());

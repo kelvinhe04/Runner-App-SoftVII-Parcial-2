@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
+    android:padding="16dp"
     android:orientation="vertical"
     android:focusable="true"
     android:focusableInTouchMode="true"
@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:hint="📅 Fecha (ej. 29/05/2025)"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:boxCornerRadiusTopStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
@@ -44,7 +43,6 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusBottomEnd="12dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/distanceInput"
@@ -63,7 +61,6 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusBottomEnd="12dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/timeInput"
@@ -75,16 +72,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="320dp"
             android:hint="🏃 Entrenamiento (ej. fondo, series, trote)"
-
             app:boxCornerRadiusTopStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusBottomEnd="12dp"
             app:endIconMode="clear_text"
             app:endIconTint="#A2C2FA"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
             >
             <com.google.android.material.textfield.TextInputEditText
@@ -98,8 +93,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/saveButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:text="Guardar Entrenamiento"
             android:textAllCaps="false"
             android:layout_marginTop="30dp"
@@ -107,6 +102,8 @@
             android:textColor="#FFF"
             android:elevation="40dp"
             app:icon="@drawable/icon_save"
-            app:iconTint="@color/icon_tint_selector"/>
+            app:iconGravity="textStart"
+            app:cornerRadius="12dp"
+            />
 
 </LinearLayout>

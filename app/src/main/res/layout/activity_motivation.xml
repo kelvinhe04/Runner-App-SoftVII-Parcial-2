@@ -2,31 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="24dp"
-    android:gravity="center"
+
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/FONDO_LAYOUT"
     >
 
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
         android:layout_width="400dp"
         android:layout_height="250dp"
+        android:layout_marginTop="160dp"
         app:lottie_autoPlay="true"
         app:lottie_fileName="animation_muneco_motivacion.json"
         app:lottie_imageAssetsFolder="assets"
-        app:lottie_loop="true">
+        app:lottie_loop="true"
+        android:layout_gravity="center">
 
     </com.airbnb.lottie.LottieAnimationView>
 
-
-
     <Button
         android:id="@+id/motivateButton"
-        android:text="💪 Mostrar Frase Motivadora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:text="Mostrar Frase Motivadora"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="235dp"
+        app:icon="@drawable/icon_muscle"
+        app:iconGravity="textStart"
+        app:cornerRadius="12dp"
         />
 </LinearLayout>

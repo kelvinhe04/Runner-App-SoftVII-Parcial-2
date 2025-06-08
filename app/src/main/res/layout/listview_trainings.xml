@@ -4,12 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="4dp">
+
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
 style="@style/META_BACKGROUND">
@@ -32,7 +35,7 @@ style="@style/META_BACKGROUND">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nombre del entrenamiento"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:layout_marginBottom="8dp"
                     android:textStyle="bold"
                     style="@style/TEXT_TITLE_COLOR_HISTORY"/>
@@ -88,7 +91,9 @@ style="@style/META_BACKGROUND">
                 android:background="@android:color/transparent"
                 android:contentDescription="Eliminar"
                 android:src="@android:drawable/ic_menu_delete"
+                android:scaleType="centerInside"
                 style="@style/TRASH_CAN" />
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

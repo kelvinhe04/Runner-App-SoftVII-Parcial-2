@@ -4,8 +4,11 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
     style="@style/FONDO_LAYOUT"
+    android:scrollbars="none"
+    android:paddingTop="30dp"
+
+
     >
 
 
@@ -54,5 +57,5 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
         android:visibility="gone"
-        android:layout_marginTop="30dp"/>
+        />
 </LinearLayout>

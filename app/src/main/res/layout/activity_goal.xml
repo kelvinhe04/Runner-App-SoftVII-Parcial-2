@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
@@ -40,19 +40,22 @@
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/saveGoalButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
         android:text="Guardar Meta"
         android:textAllCaps="false"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="515dp"
         android:layout_gravity="center_horizontal"
         android:textColor="#FFF"
         android:elevation="40dp"
         app:icon="@drawable/icon_save"
-        app:iconTint="@color/icon_tint_selector"
+        app:iconGravity="textStart"
+        app:cornerRadius="12dp"
         />
-
 
 </LinearLayout>
