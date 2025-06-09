@@ -18,7 +18,7 @@ public class GoalActivity extends AppCompatActivity {
 
     private EditText goalInput;
     private TextView currentGoalText;
-    private Button saveGoalButton;
+    private Button saveGoalButton, backButton;
     private SharedPreferences prefs;
 
     private Toast toastActivo;
@@ -30,6 +30,7 @@ public class GoalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_goal);
 
         this.inicializarControles();
+        this.regresarActivity();
 
 
         prefs = getSharedPreferences("RunnerPrefs", MODE_PRIVATE);
@@ -67,6 +68,12 @@ public class GoalActivity extends AppCompatActivity {
 
 
     }
+
+    private void regresarActivity() {
+        backButton.setOnClickListener(v -> finish());
+
+    }
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -90,6 +97,8 @@ public class GoalActivity extends AppCompatActivity {
         goalInput = findViewById(R.id.goalInput);
         saveGoalButton = findViewById(R.id.saveGoalButton);
         currentGoalText = findViewById(R.id.currentGoalText);
+        backButton = findViewById(R.id.backButton);
+
 
     }
 

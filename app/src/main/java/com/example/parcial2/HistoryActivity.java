@@ -2,6 +2,7 @@ package com.example.parcial2;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import android.view.View;
 public class HistoryActivity extends AppCompatActivity implements OnTrainingRemovedListener {
 
     private TrainingListviewAdapter adapter;
+    private Button backButton;
 
 
     private ListView listView;
@@ -34,10 +36,24 @@ public class HistoryActivity extends AppCompatActivity implements OnTrainingRemo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        listView = findViewById(R.id.listView);
-        cardViewHistorial = findViewById(R.id.cardViewHistorial);
+        this.inicializarControles();
+        this.regresarActivity();
+
+
+
 
         cargarHistorial();
+    }
+
+    private void regresarActivity() {
+        backButton.setOnClickListener(v -> finish());
+
+    }
+
+    private void inicializarControles() {
+        listView = findViewById(R.id.listView);
+        cardViewHistorial = findViewById(R.id.cardViewHistorial);
+        backButton = findViewById(R.id.backButton);
     }
 
     @Override

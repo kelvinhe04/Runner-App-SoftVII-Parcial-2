@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextInputLayout dateInputLayout, distanceInputLayout, timeInputLayout, typeInputLayout;
 
     private TextInputEditText dateInput, distanceInput, timeInput, typeInput;
-    private Button saveButton;
+    private Button saveButton, backButton;
     private static final String ARCHIVO = "entrenamientos.txt";
 
     private Toast toastActivo;
@@ -43,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         this.inicializarControles();
+        this.regresarActivity();
 
 
         saveButton.setOnClickListener(v -> guardarEntrenamiento());
@@ -96,8 +97,15 @@ public class RegisterActivity extends AppCompatActivity {
         distanceInputLayout = findViewById(R.id.distanceInputLayout);
         timeInputLayout = findViewById(R.id.timeInputLayout);
         typeInputLayout = findViewById(R.id.typeInputLayout);
+        backButton = findViewById(R.id.backButton);
 
 
+
+
+    }
+
+    private void regresarActivity() {
+        backButton.setOnClickListener(v -> finish());
     }
 
     private void mostrarToastUnico(String mensaje) {

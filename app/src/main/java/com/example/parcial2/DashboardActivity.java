@@ -175,6 +175,7 @@ public class DashboardActivity extends AppCompatActivity {
 
 
 
+
         mostrarProgreso();
 
 
@@ -207,7 +208,7 @@ public class DashboardActivity extends AppCompatActivity {
         String metaTexto = prefs.getString("meta", "");
         if (metaTexto.isEmpty()) {
             metaInfo.setText("No has definido una meta aún.");
-            metaRestante.setText("");
+            metaRestante.setVisibility(View.GONE);
             metaProgressBar.setProgress(0);
             metaProgressBar.setVisibility(View.GONE);
             percentText.setVisibility(View.GONE);

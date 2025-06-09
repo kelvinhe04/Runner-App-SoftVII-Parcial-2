@@ -12,6 +12,17 @@
 
     >
 
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regresar"
+        app:icon="@drawable/icon_back"
+        app:cornerRadius="12dp"
+        android:layout_marginTop="14dp"
+
+        />
+
 
 
 
@@ -79,7 +90,7 @@
             android:id="@+id/typeInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="320dp"
+            android:layout_marginBottom="285dp"
             android:hint="🏃 Entrenamiento (fondo, series, trote)"
             app:boxCornerRadiusTopStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
@@ -105,7 +116,6 @@
             android:layout_height="55dp"
             android:text="Guardar Entrenamiento"
             android:textAllCaps="false"
-            android:layout_marginTop="30dp"
             android:layout_gravity="center_horizontal"
             android:textColor="#FFF"
             android:elevation="40dp"

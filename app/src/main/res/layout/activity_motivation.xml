@@ -8,6 +8,16 @@
     android:layout_height="match_parent"
     style="@style/FONDO_LAYOUT"
     >
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regresar"
+        app:icon="@drawable/icon_back"
+        app:cornerRadius="12dp"
+        android:layout_marginTop="14dp"
+
+        />
 
 
     <com.airbnb.lottie.LottieAnimationView
@@ -28,7 +38,7 @@
         android:text="Mostrar Frase Motivadora"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="170dp"
         app:icon="@drawable/icon_muscle"
         app:iconGravity="textStart"
         app:cornerRadius="12dp"

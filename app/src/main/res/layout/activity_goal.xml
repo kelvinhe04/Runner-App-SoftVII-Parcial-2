@@ -9,6 +9,17 @@
     android:focusableInTouchMode="true"
     android:clickable="true"
     style="@style/FONDO_LAYOUT">
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regresar"
+        app:icon="@drawable/icon_back"
+        app:cornerRadius="12dp"
+        android:layout_marginTop="14dp"
+
+        />
+
 
     <TextView
         android:id="@+id/currentGoalText"
@@ -49,7 +60,7 @@
         android:layout_height="55dp"
         android:text="Guardar Meta"
         android:textAllCaps="false"
-        android:layout_marginTop="515dp"
+        android:layout_marginTop="450dp"
         android:layout_gravity="center_horizontal"
         android:textColor="#FFF"
         android:elevation="40dp"

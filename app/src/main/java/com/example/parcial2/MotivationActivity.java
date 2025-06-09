@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class MotivationActivity extends AppCompatActivity {
 
-    private Button fraseButton;
+    private Button fraseButton, backButton;
     String[] frases = {
             "¡Sigue adelante, cada paso cuenta!",
             "El dolor es temporal, la gloria es para siempre.",
@@ -44,8 +44,17 @@ public class MotivationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_motivation);
 
         fraseButton = findViewById(R.id.motivateButton);
+        backButton = findViewById(R.id.backButton);
+
+        this.regresarActivity();
+
 
         fraseButton.setOnClickListener(v -> mostrarFraseAleatoria());
+    }
+
+    private void regresarActivity() {
+        backButton.setOnClickListener(v -> finish());
+
     }
 
     private void mostrarFraseAleatoria() {
