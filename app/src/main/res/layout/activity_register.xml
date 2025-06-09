@@ -27,6 +27,7 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusBottomEnd="12dp"
             android:layout_marginTop="30dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/dateInput"
@@ -45,6 +46,7 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusBottomEnd="12dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/distanceInput"
@@ -64,6 +66,7 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusBottomEnd="12dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/timeInput"
@@ -84,6 +87,7 @@
             app:boxCornerRadiusBottomEnd="12dp"
             app:endIconMode="clear_text"
             app:endIconTint="#A2C2FA"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
             >
             <com.google.android.material.textfield.TextInputEditText
