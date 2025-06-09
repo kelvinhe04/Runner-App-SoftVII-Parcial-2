@@ -76,10 +76,12 @@ public class TrainingListviewAdapter extends ArrayAdapter<Training> {
         TextView lblRitmo = item.findViewById(R.id.lblRitmo);
         if (distancia > 0) {
             float ritmo = tiempo / distancia;
-            String ritmoTexto = String.format(Locale.getDefault(), "Ritmo: %.2f min/km", ritmo);
-            lblRitmo.setText(ritmoTexto);
-        } else {
-            lblRitmo.setText("Ritmo: -- min/km");
+            if (ritmo == (int) ritmo) {
+                lblRitmo.setText("Ritmo: " + (int) ritmo + " min/km");
+            } else {
+                String ritmoTexto = String.format(Locale.getDefault(), "Ritmo: %.2f min/km", ritmo);
+                lblRitmo.setText(ritmoTexto);
+            }
         }
 
         // 🔴 BOTÓN DE ELIMINAR
