@@ -89,5 +89,15 @@
         <item name="tint">#DEDEDE</item>
     </style>
 
+    <style name="Widget.MyApp.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="errorTextAppearance">@style/InvisibleError</item>
+    </style>
+
+    <style name="InvisibleError" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">0sp</item>
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+
+
 
 </resources>

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText nameInput;
     private Button startButton;
     private SharedPreferences prefs;
+    private Toast toastActivo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             String inputName = nameInput.getText().toString().trim();
 
             if (inputName.isEmpty()) {
+                mostrarToastUnico("Ingresa un nombre");
                 nameInputLayout.setError(" ");
                 return;
             }
@@ -60,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
         startButton = findViewById(R.id.startButton);
         nameInputLayout = findViewById(R.id.nameInputLayout);
         nameInput = findViewById(R.id.nameInput);
+    }
+
+    private void mostrarToastUnico(String mensaje) {
+        if (toastActivo != null) {
+            toastActivo.cancel(); // Cancela el anterior si aún está visible
+        }
+        toastActivo = Toast.makeText(this, mensaje, Toast.LENGTH_SHORT);
+        toastActivo.show();
     }
 
     private void startDashboard() {

@@ -82,5 +82,10 @@
         <item name="tint">#E8645D</item>
     </style>
 
+    <style name="InvisibleError" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">0sp</item>
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+
 
 </resources>

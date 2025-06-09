@@ -14,6 +14,8 @@
     <color name="primary">#A2C2FA</color>
     <color name="on_primary">#FFFFFF</color>
 
+    <color name="red">#FF0404</color>
+
 
     <!-- Cuadro Registrar Entrenamiento -->
     <color name="cuadro_grid_1_uno">#FFE5DB</color>
