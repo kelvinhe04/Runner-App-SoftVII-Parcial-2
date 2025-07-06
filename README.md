@@ -39,5 +39,5 @@ This Android app is designed specifically for runners to track their training se
 
 ## 📦 Release
 
-A compiled APK version of the app is available for download in the [Releases](https://github.com/kelvinhe04/runner-fitness-tracker/releases) section of this repository for easy installation on Android devices.
+A compiled APK version of the app is available for download in the [Releases](https://github.com/kelvinhe04/Runner-App-SoftVII-Parcial-2)/releases) section of this repository for easy installation on Android devices.
 
