@@ -26,7 +26,6 @@ import java.util.Locale;
 import java.util.Arrays;
 
 
-
 import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Size;
 import nl.dionsegijn.konfetti.models.Shape;
@@ -56,9 +55,6 @@ public class DashboardActivity extends AppCompatActivity {
     private int progreso;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +75,6 @@ public class DashboardActivity extends AppCompatActivity {
         this.LogOut();
 
 
-
     }
 
 
@@ -87,7 +82,7 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onResume() {
 
         super.onResume();
-        if(Flag.sinRegistros){
+        if (Flag.sinRegistros) {
             mostrarProgreso();  // Refrescar meta al volver
             mostrarAnimacionProgreso();
             Flag.sinRegistros = false;
@@ -95,21 +90,17 @@ public class DashboardActivity extends AppCompatActivity {
         }
 
 
-
         if (Flag.nuevoRegistro) {
 
             confettiShown = false;
 
-
             mostrarProgreso();  // Refrescar meta al volver
             mostrarAnimacionProgreso();
-
 
             Flag.nuevoRegistro = false; // resetear la bandera
 
 
         }
-
 
 
         if (Flag.nuevaMeta) {
@@ -118,22 +109,13 @@ public class DashboardActivity extends AppCompatActivity {
             mostrarProgreso();  // Refrescar meta al volver
             mostrarAnimacionProgreso();
 
-
             Flag.nuevaMeta = false; // resetear la bandera
-
 
 
         }
 
 
-
-
-
-
-
         this.ObtenerFechaActual();
-
-
 
 
     }
@@ -172,8 +154,6 @@ public class DashboardActivity extends AppCompatActivity {
         percentRectangle = findViewById(R.id.percentRectangle);
         dateText = findViewById(R.id.dateText);
         btnLogOut = findViewById(R.id.btnLogOut);
-
-
 
 
         mostrarProgreso();
@@ -226,7 +206,6 @@ public class DashboardActivity extends AppCompatActivity {
             metaKm = 0f;
             Toast.makeText(this, "error en metakm.", Toast.LENGTH_SHORT).show();
         }
-
 
 
         if (metaKm == (int) metaKm) {
@@ -285,8 +264,6 @@ public class DashboardActivity extends AppCompatActivity {
         if (progreso > 100) progreso = 100;
 
 
-
-
         if (progreso >= 100 && !confettiShown) {
             List<Integer> konfettiColors;
             confettiShown = true;
@@ -339,9 +316,6 @@ public class DashboardActivity extends AppCompatActivity {
 
                 mostrarAnimacionProgreso();
             });
-
-
-
 
 
         }
