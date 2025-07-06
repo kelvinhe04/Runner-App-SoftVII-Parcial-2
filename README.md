@@ -15,12 +15,12 @@
 ### ☀️ Light Mode (English)
 
 <div>
-  <img src="./github-preview-img/preview-1-dark-es.jpg" alt="preview-1-dark-es" width="200" style="display:inline-block;"/>
-  <img src="./github-preview-img/preview-2-dark-es.jpg" alt="preview-2-dark-es" width="200" style="display:inline-block;" />
-  <img src="./github-preview-img/preview-3-dark-es.jpg" alt="preview-3-dark-es" width="200" style="display:inline-block;" />
-  <img src="./github-preview-img/preview-4-dark-es.jpg" alt="preview-4-dark-es" width="200" style="display:inline-block;" />
-  <img src="./github-preview-img/preview-5-dark-es.jpg" alt="preview-5-dark-es" width="200" style="display:inline-block;" />
-  <img src="./github-preview-img/preview-6-dark-es.jpg" alt="preview-6-dark-es" width="200" style="display:inline-block;" />
+  <img src="./github-preview-img/preview-1-light-en.jpg" alt="preview-1-dark-es" width="200" style="display:inline-block;"/>
+  <img src="./github-preview-img/preview-2-light-en.jpg" alt="preview-2-dark-es" width="200" style="display:inline-block;" />
+  <img src="./github-preview-img/preview-3-light-en.jpg" alt="preview-3-dark-es" width="200" style="display:inline-block;" />
+  <img src="./github-preview-img/preview-4-light-en.jpg" alt="preview-4-dark-es" width="200" style="display:inline-block;" />
+  <img src="./github-preview-img/preview-5-light-en.jpg" alt="preview-5-dark-es" width="200" style="display:inline-block;" />
+  <img src="./github-preview-img/preview-6-light-en.jpg" alt="preview-6-dark-es" width="200" style="display:inline-block;" />
 </div>
 
 
