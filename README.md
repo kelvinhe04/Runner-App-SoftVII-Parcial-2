@@ -57,7 +57,7 @@ This Android app is designed specifically for runners to **track their training 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/runner-fitness-tracker.git
+   git clone https://github.com/kelvinhe04/Runner-App-SoftVII-Parcial-2.git
    
 2.Open the project in Android Studio.
 
