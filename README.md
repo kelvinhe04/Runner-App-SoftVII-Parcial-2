@@ -1,12 +1,22 @@
 # Runner Fitness Tracker
 
+
+### 🏁 Splash Screen
+
 <div>
-  <img src="./img/github-preview/preview-1-dark.jpg" alt="Preview 1 dark" width="200" style="display:inline-block; margin-right:100px;" />
+  <img src="./github-preview-img/preview1.jpg" alt="Preview 1 dark" width="200" style="display:inline-block; margin-right:100px;" />
   <img src="./img/github-preview/preview-2-dark.jpg" alt="Preview 2 dark" width="200" style="display:inline-block;" />
   <img src="./img/github-preview/preview-1-light.jpg" alt="Preview 1 light" width="200" style="display:inline-block; margin-right:100px;" />
   <img src="./img/github-preview/preview-2-light.jpg" alt="Preview 2 light" width="200" style="display:inline-block;" />
 </div>
+### 🏁 Splash Screen
 
+<div>
+  <img src="./github-preview-img/preview1.jpg" alt="Preview 1 dark" width="200" style="display:inline-block; margin-right:100px;" />
+  <img src="./img/github-preview/preview-2-dark.jpg" alt="Preview 2 dark" width="200" style="display:inline-block;" />
+  <img src="./img/github-preview/preview-1-light.jpg" alt="Preview 1 light" width="200" style="display:inline-block; margin-right:100px;" />
+  <img src="./img/github-preview/preview-2-light.jpg" alt="Preview 2 light" width="200" style="display:inline-block;" />
+</div>
 This Android app is designed specifically for runners to **track their training sessions**, **set fitness goals**, and **view workout history**. It also includes **motivational phrases** to keep you inspired and engaged throughout your journey.
 
 > 🟢 **Note:** The app is available in **both English and Spanish**, and automatically adapts to the user's device language settings. It also supports both **light and dark mode** for a modern user experience.
