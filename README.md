@@ -1,26 +1,30 @@
 # Runner Fitness Tracker
 
-This Android app is designed specifically for runners to track their training sessions, set fitness goals, and view workout history. It also provides motivational phrases to keep you inspired along the way.
+This Android app is designed specifically for runners to **track their training sessions**, **set fitness goals**, and **view workout history**. It also includes **motivational phrases** to keep you inspired and engaged throughout your journey.
 
-## Features:
-- **Splash Screen**: Displays a splash screen when opening the app.
-- **User Registration**: Users can enter their name, which is saved for future use.
-- **Set Goals**: Set and update running goals, such as distance or time targets.
-- **Track Workouts**: Log training sessions with details like date, distance, time, and type.
-- **History View**: View and manage past workout sessions.
-- **Motivational Quotes**: Get a random motivational quote to keep you inspired.
-- **Progress Dashboard**: Track your progress towards your running goals with a visual progress bar and confetti animation when the goal is met.
+> 🟢 **Note:** The app is available in **both English and Spanish**, and automatically adapts to the user's device language settings. It also supports both **light and dark mode** for a modern user experience.
 
-## Activities:
-- **SplashActivity**: Initial screen with a brief splash.
-- **MainActivity**: Enter user details (name) and navigate to the dashboard.
-- **GoalActivity**: Set or update running goals (e.g., distance or time).
-- **RegisterActivity**: Log workout details such as date, distance, time, and type.
-- **HistoryActivity**: View the history of past workouts.
+## 🏃 Features:
+- **Splash Screen**: A brief loading screen shown on app launch.
+- **User Registration**: Users can enter and save their name for a personalized experience.
+- **Set Goals**: Define and update running goals such as distance or time targets.
+- **Track Workouts**: Log training sessions with key details like date, distance, time, and type.
+- **Workout History**: View and manage past running sessions.
+- **Motivational Quotes**: Get a random motivational phrase to stay inspired.
+- **Progress Dashboard**: Visual progress bar and confetti animation when a goal is achieved.
+- **Multi-language Support**: 🌐 App is available in **English and Spanish**.
+- **Theme Support**: 🌗 Supports both **light and dark mode**.
+
+## 📱 Activities:
+- **SplashActivity**: Initial splash screen on app launch.
+- **MainActivity**: Input user name and navigate to dashboard.
+- **GoalActivity**: Set or update fitness goals.
+- **RegisterActivity**: Log running sessions with complete details.
+- **HistoryActivity**: View a list of previous workouts.
 - **MotivationActivity**: Display a random motivational phrase.
-- **DashboardActivity**: The main screen where the user can track their progress, set new goals, view workout history, and log out.
+- **DashboardActivity**: Main screen to track progress, access features, and log out.
 
-## Requirements:
+## 📋 Requirements:
 - Android Studio
 - Minimum SDK: Android 5.0 (Lollipop)
 
