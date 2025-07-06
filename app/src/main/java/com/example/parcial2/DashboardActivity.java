@@ -96,7 +96,7 @@ public class DashboardActivity extends AppCompatActivity {
 
 
 
-        if (Flag.nuevoRegistro && !confettiShown) {
+        if (Flag.nuevoRegistro) {
 
             confettiShown = false;
 
