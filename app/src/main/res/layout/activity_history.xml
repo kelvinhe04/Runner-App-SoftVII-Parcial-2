@@ -11,7 +11,7 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Regresar"
+        android:text="@string/btn_back"
         app:icon="@drawable/icon_back"
         app:cornerRadius="12dp"
         android:layout_marginTop="40dp"
@@ -56,8 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="¡Sin datos! Empieza a entrenar para ver tu progreso aquí
-"
+                android:text="@string/no_data_message"
                 android:textStyle="bold" />
 
 

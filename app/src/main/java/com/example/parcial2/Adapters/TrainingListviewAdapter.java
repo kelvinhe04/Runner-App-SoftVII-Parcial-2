@@ -56,30 +56,32 @@ public class TrainingListviewAdapter extends ArrayAdapter<Training> {
         lblEntrenamiento.setText(training.getTipo());
 
         TextView lblFecha = item.findViewById(R.id.lblFecha);
-        lblFecha.setText("Fecha:  " + training.getFecha());
+        lblFecha.setText(context.getString(R.string.training_date) + " " + training.getFecha());
+
 
         TextView lblDistancia = item.findViewById(R.id.lblDistancia);
         float distancia = training.getDistanciaKm();
         if (distancia == (int) distancia) {
-            lblDistancia.setText("Distancia:  " + (int) distancia + " km");
+            lblDistancia.setText(context.getString(R.string.training_distance) + " " + (int) distancia + " " + context.getString(R.string.training_unit_km));
         } else {
-            lblDistancia.setText("Distancia:  " + distancia + " km");
+            lblDistancia.setText(context.getString(R.string.training_distance) + " " + distancia + " " + context.getString(R.string.training_unit_km));
         }
 
         TextView lblTiempo = item.findViewById(R.id.lblTiempo);
         int tiempo = training.getTiempoMin();
-        lblTiempo.setText("Tiempo: " + tiempo + " min");
+        lblTiempo.setText(context.getString(R.string.training_time) + " " + tiempo + " " + context.getString(R.string.training_unit_min));
+
 
         TextView lblTipo = item.findViewById(R.id.lblTipo);
-        lblTipo.setText("Tiempo: " + training.getTipo());
+        lblTipo.setText(context.getString(R.string.training_type) + " " + training.getTipo());
 
         TextView lblRitmo = item.findViewById(R.id.lblRitmo);
         if (distancia > 0) {
             float ritmo = tiempo / distancia;
             if (ritmo == (int) ritmo) {
-                lblRitmo.setText("Ritmo: " + (int) ritmo + " min/km");
+                lblRitmo.setText(context.getString(R.string.training_pace) + " " + (int) ritmo + " " + context.getString(R.string.training_unit_pace));
             } else {
-                String ritmoTexto = String.format(Locale.getDefault(), "Ritmo: %.2f min/km", ritmo);
+                String ritmoTexto = context.getString(R.string.training_pace) + " " + String.format(Locale.getDefault(), "%.2f", ritmo) + " " + context.getString(R.string.training_unit_pace);
                 lblRitmo.setText(ritmoTexto);
             }
         }
@@ -91,7 +93,7 @@ public class TrainingListviewAdapter extends ArrayAdapter<Training> {
             public void onClick(View v) {
                 eliminarDelArchivo(training);
                 trainings.remove(position);
-                Toast.makeText(context, "Entrenamiento eliminado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getString(R.string.toast_training_deleted), Toast.LENGTH_SHORT).show();
                 notifyDataSetChanged();
 
                 if (listener != null) {

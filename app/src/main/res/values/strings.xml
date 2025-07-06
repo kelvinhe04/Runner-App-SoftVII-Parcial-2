@@ -1,3 +1,140 @@
 <resources>
     <string name="app_name">Runix</string>
+
+    <!--  SplashActivity -->
+    <string name="app_version">Version 1.0.0</string>
+
+
+    <!-- 🏠 MainActivity.xml -->
+    <string name="welcome_message">Welcome, Runner!</string>
+    <string name="enter_name">👤 Enter your name</string>
+    <string name="start_button">Start</string>
+    <!-- 🏠 MainActivity -->
+    <string name="error_empty_name">Enter a name</string>
+
+
+    <!--  DashboardActivity.xml -->
+    <string name="greeting_message">Hello %1$s!</string>
+    <string name="date_sample">Monday, June 2</string>
+    <!-- Monthly Goal -->
+    <string name="goal_title">Monthly Goal</string>
+    <string name="meta_del_mes">Monthly goal: %1$s km</string>
+    <string name="goal_completed_message">Congratulations!&#10;&#10;You\'ve completed your monthly goal.</string>
+    <string name="goal_remaining_message">You have %1$s km left to reach your goal</string>
+    <string name="no_goal_defined">You haven\'t defined a goal yet.</string>
+    <string name="goal_parse_error">Error reading the goal.</string>
+    <!-- Action Buttons -->
+    <string name="btn_register_workout">Register\nWorkout</string>
+    <string name="btn_motivational_quotes">Motivational\nQuotes</string>
+    <string name="btn_view_history">View\nHistory</string>
+    <string name="btn_runner_goals">Runners\nGoals</string>
+    <!--  DashboardActivity -->
+    <string name="logout_title">Do you want to log out?</string>
+    <string name="logout_message">This will delete the current user and all saved records. You will need to log in again with another user.</string>
+    <string name="logout_confirm">Yes</string>
+    <string name="logout_cancel">Cancel</string>
+    <string name="logout_success">User and records deleted</string>
+
+
+
+
+
+
+
+    <!-- RegisterActivity.xml -->
+    <string name="hint_date">📅 Date (e.g. 05/29/2025)</string>
+    <string name="hint_distance">📏 Distance (km)</string>
+    <string name="hint_time"> ⏱ Time (min)</string>
+    <string name="hint_type">🏃 Training type (long run, intervals, jog)</string>
+    <string name="save_training_button">Save Training</string>
+    <!-- RegisterActivity -->
+    <string name="error_fecha_vacia">Date cannot be empty</string>
+    <string name="error_distancia_vacia">Distance cannot be empty</string>
+    <string name="error_tiempo_vacio">Time cannot be empty</string>
+    <string name="error_tipo_vacio">Training type cannot be empty</string>
+
+    <string name="error_fecha_invalida">The date must be in the format \ndd/MM/yyyy and valid</string>
+    <string name="error_fecha_invalida_campo">Must be in format dd/MM/yyyy and valid</string>
+
+    <string name="error_distancia_menor_cero">Distance must be greater than 0</string>
+    <string name="error_tiempo_menor_cero">Time must be greater than 0</string>
+
+    <string name="error_valores_invalidos">Distance and time must be valid numbers</string>
+    <string name="error_guardar_entrenamiento">Error saving training</string>
+
+    <string name="entrenamiento_guardado">Training saved</string>
+
+    <string name="campo_requerido">Required field</string>
+
+
+    <!-- MotivationActivity.xml -->
+    <string name="btn_motivate">Show Motivational Quote</string>
+    <!-- Motivational phrases -->
+    <string-array name="motivational_phrases">
+        <item>Keep going, every step counts!</item>
+        <item>Pain is temporary, glory is forever.</item>
+        <item>Today is a great day to run farther.</item>
+        <item>Believe in yourself. You’re closer to your goal.</item>
+        <item>The only bad workout is the one you didn’t do.</item>
+        <item>You don’t have to go fast, just don’t stop.</item>
+        <item>Turn fatigue into motivation.</item>
+        <item>Run with your heart, not just your legs.</item>
+        <item>Your only limit is you.</item>
+        <item>Every kilometer makes you stronger.</item>
+        <item>Don’t stop when you’re tired, stop when you’re done.</item>
+        <item>Today’s effort is tomorrow’s pride.</item>
+        <item>Do it for the person you want to become.</item>
+        <item>Run like you’re already a champion.</item>
+        <item>A strong mind overcomes a tired body.</item>
+        <item>Get up. Breathe. Try again.</item>
+        <item>Train hard, shine brighter.</item>
+        <item>Never underestimate the power of a good workout.</item>
+        <item>A goal without effort is just a dream.</item>
+        <item>Today, give your best. Tomorrow, you’ll be better.</item>
+    </string-array>
+
+    <string name="motivation_dialog_title">Motivational Quote 🏃‍♂️</string>
+    <string name="dialog_close_button">Close</string>
+
+
+
+
+
+    <!-- GoalActivity.xml -->
+    <string name="btn_back">Back</string>
+    <string name="current_goal_label">Current goal: </string>
+    <string name="goal_input_hint">🏁 Enter your goal (e.g., Run 50 km)</string>
+    <string name="save_goal_button">Save Goal</string>
+
+    <!-- GoalActivity -->
+    <string name="current_goal">Current goal: %1$s</string>
+    <string name="no_goal_set">You haven\'t set a goal yet.</string>
+    <string name="goal_saved">Goal saved</string>
+    <string name="goal_not_changed">The goal hasn\'t changed</string>
+    <string name="goal_is_zero">Goal cannot be 0</string>
+    <string name="goal_invalid">Enter a valid goal</string>
+    <string name="goal_no_number">The goal must contain at least one number</string>
+
+
+
+
+    <!-- HistoryActivity -->
+    <string name="no_data_message">No data yet! Start training to see your progress here</string>
+    <!-- HistoryActivity -->
+    <string name="no_trainings">No workouts recorded.</string>
+
+
+
+    <!-- TrainingListviewAdapter -->
+    <string name="training_date">Date:</string>
+    <string name="training_distance">Distance:</string>
+    <string name="training_time">Time:</string>
+    <string name="training_type">Type:</string>
+    <string name="training_pace">Pace:</string>
+    <string name="training_unit_km">km</string>
+    <string name="training_unit_min">min</string>
+    <string name="training_unit_pace">min/km</string>
+    <string name="toast_training_deleted">Training deleted</string>
+
+
 </resources>

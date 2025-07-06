@@ -70,7 +70,8 @@ public class DashboardActivity extends AppCompatActivity {
 
 
         // Mostrar saludo
-        greetingTextView.setText("Hola " + nombre + "!");
+        String saludo = getString(R.string.greeting_message, nombre);
+        greetingTextView.setText(saludo);
 
         this.LogOut();
 
@@ -123,20 +124,21 @@ public class DashboardActivity extends AppCompatActivity {
     private void LogOut() {
         btnLogOut.setOnClickListener(v -> {
             MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(DashboardActivity.this, R.style.RoundedAlertDialog);
-            builder.setTitle("¿Deseas cerrar sesión?")
-                    .setMessage("Esto borrará el usuario actual y todos los registros guardados. Tendrás que iniciar sesión nuevamente con otro usuario.")
-                    .setPositiveButton("Sí", (dialog, which) -> {
+            builder.setTitle(getString(R.string.logout_title))
+                    .setMessage(getString(R.string.logout_message))
+                    .setPositiveButton(getString(R.string.logout_confirm), (dialog, which) -> {
                         borrarDatosDelUsuario();
-                        Toast.makeText(DashboardActivity.this, "Usuario y registros eliminados", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DashboardActivity.this, getString(R.string.logout_success), Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(DashboardActivity.this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     })
-                    .setNegativeButton("Cancelar", null)
+                    .setNegativeButton(getString(R.string.logout_cancel), null)
                     .show();
         });
     }
+
 
 
     private void inicializarControles() {
@@ -171,23 +173,27 @@ public class DashboardActivity extends AppCompatActivity {
 
 
     private void ObtenerFechaActual() {
-        // Obtener la fecha actual
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d 'de' MMMM", new Locale("es", "ES"));
+        // Obtener locale actual del dispositivo
+        Locale currentLocale = getResources().getConfiguration().locale;
+
+        // Crear formato de fecha con locale del dispositivo
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, d MMMM", currentLocale);
+
         String fechaActual = dateFormat.format(new Date());
 
-// Poner la primera letra en mayúscula (opcional)
+        // Poner primera letra en mayúscula
         fechaActual = fechaActual.substring(0, 1).toUpperCase() + fechaActual.substring(1);
 
-// Mostrar la fecha en el TextView
+        // Mostrar fecha en el TextView
         dateText.setText(fechaActual);
-
     }
+
 
     private void mostrarProgreso() {
 
         String metaTexto = prefs.getString("meta", "");
         if (metaTexto.isEmpty()) {
-            metaInfo.setText("No has definido una meta aún.");
+            metaInfo.setText(getString(R.string.no_goal_defined));
             metaRestante.setVisibility(View.GONE);
             metaProgressBar.setProgress(0);
             metaProgressBar.setVisibility(View.GONE);
@@ -204,17 +210,20 @@ public class DashboardActivity extends AppCompatActivity {
 
         } catch (Exception e) {
             metaKm = 0f;
-            Toast.makeText(this, "error en metakm.", Toast.LENGTH_SHORT).show();
-        }
+            Toast.makeText(this, getString(R.string.goal_parse_error), Toast.LENGTH_SHORT).show();        }
 
 
+        String metaTextoKm;
         if (metaKm == (int) metaKm) {
             // Mostrar como entero
-            metaInfo.setText("Meta del mes: " + (int) metaKm + " km");
+            metaTextoKm = String.valueOf((int) metaKm);
         } else {
             // Mostrar con 1 decimal
-            metaInfo.setText("Meta del mes: " + String.format("%.1f", metaKm) + " km");
+            metaTextoKm = String.format(Locale.getDefault(), "%.1f", metaKm);
         }
+
+// Usar string con placeholder para traducción
+        metaInfo.setText(getString(R.string.meta_del_mes, metaTexto));
 
 
         // Calcular km acumulados
@@ -236,28 +245,25 @@ public class DashboardActivity extends AppCompatActivity {
 
 
         if (faltan <= 0) {
-            metaRestante.setText("¡Felicidades! \n\nHas completado tu meta del mes.");
-            metaProgressBar.setVisibility(View.VISIBLE);
-            percentText.setVisibility(View.VISIBLE);
-            percentRectangle.setVisibility(View.VISIBLE);
+            metaRestante.setText(getString(R.string.goal_completed_message));
         } else {
+            String restanteTexto;
             if (faltan == (int) faltan) {
-                // Es entero exacto, muestra sin decimales
-                metaRestante.setText("Te faltan " + (int) faltan + " km para alcanzar tu meta");
-                metaProgressBar.setVisibility(View.VISIBLE);
-                percentText.setVisibility(View.VISIBLE);
-                percentRectangle.setVisibility(View.VISIBLE);
-
-
+                restanteTexto = String.valueOf((int) faltan);
             } else {
-                // Tiene decimales, muestra con un decimal
-                metaRestante.setText("Te faltan " + String.format("%.1f", faltan) + " km para alcanzar tu meta");
-                metaProgressBar.setVisibility(View.VISIBLE);
-                percentText.setVisibility(View.VISIBLE);
-                percentRectangle.setVisibility(View.VISIBLE);
+                restanteTexto = String.format(Locale.getDefault(), "%.1f", faltan);
             }
 
+            String mensaje = getString(R.string.goal_remaining_message, restanteTexto);
+            metaRestante.setText(mensaje);
         }
+
+// Mostrar siempre los elementos
+        metaRestante.setVisibility(View.VISIBLE);
+        metaProgressBar.setVisibility(View.VISIBLE);
+        percentText.setVisibility(View.VISIBLE);
+        percentRectangle.setVisibility(View.VISIBLE);
+
 
 
         progreso = (int) ((kmActuales / metaKm) * 100);

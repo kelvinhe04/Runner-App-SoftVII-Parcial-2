@@ -46,7 +46,7 @@
                     android:id="@+id/greeting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="¡Hola, Corredor!"
+                    android:text="@string/greeting_message"
                     android:textColor="@color/on_primary"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:alpha="0.8"
-                    android:text="Lunes, 2 de Junio"
+                    android:text="@string/date_sample"
                     android:textColor="@color/on_primary"
                     android:textSize="14sp"
                     tools:ignore="HardcodedText" />
@@ -112,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_weight="1"
-                        android:text="Meta del Mes"
+                        android:text="@string/goal_title"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText" />
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:gravity="center"
-                    android:text="Correr 50 km"
+                    android:text="@string/meta_del_mes"
                     android:textSize="28sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText" />
@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Te faltan 25 km para alcanzar tu meta"
+                    android:text="@string/goal_remaining_message"
                     android:textSize="16sp"
                     tools:ignore="HardcodedText" />
 
@@ -235,7 +235,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Registrar\nEntrenamiento"
+                        android:text="@string/btn_register_workout"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText" />
@@ -275,7 +275,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Frases\nMotivadoras"
+                        android:text="@string/btn_motivational_quotes"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText" />
@@ -315,7 +315,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Ver\nHistorial"
+                        android:text="@string/btn_view_history"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText" />
@@ -355,7 +355,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="Metas del\nCorredor"
+                        android:text="@string/btn_runner_goals"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText" />

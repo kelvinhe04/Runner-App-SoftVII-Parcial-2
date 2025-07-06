@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             String inputName = nameInput.getText().toString().trim();
 
             if (inputName.isEmpty()) {
-                mostrarToastUnico("Ingresa un nombre");
+                mostrarToastUnico(getString(R.string.error_empty_name));
                 nameInputLayout.setError(" ");
                 return;
             }

@@ -127,8 +127,8 @@ public class RegisterActivity extends AppCompatActivity {
         String tipo = typeInput.getText().toString().trim();
 
         if (fecha.isEmpty()) {
-            mostrarToastUnico("La fecha no puede estar vacía");
-            dateInputLayout.setError("Campo requerido");
+            mostrarToastUnico(getString(R.string.error_fecha_vacia));
+            dateInputLayout.setError(getString(R.string.campo_requerido));;
             return;
         }else {
             dateInputLayout.setError(null);
@@ -136,65 +136,61 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         if (distanciaStr.isEmpty()) {
-            mostrarToastUnico("La distancia no puede estar vacía");
-            distanceInputLayout.setError("Campo requerido");
+            mostrarToastUnico(getString(R.string.error_distancia_vacia));
+            distanceInputLayout.setError(getString(R.string.campo_requerido));
             return;
-        }else {
+        } else {
             distanceInputLayout.setError(null);
-            distanceInputLayout.setErrorEnabled(false); // Esto elimina el espacio del error
+            distanceInputLayout.setErrorEnabled(false);
         }
 
         if (tiempoStr.isEmpty()) {
-            mostrarToastUnico("El tiempo no puede estar vacío");
-            timeInputLayout.setError("Campo requerido");
+            mostrarToastUnico(getString(R.string.error_tiempo_vacio));
+            timeInputLayout.setError(getString(R.string.campo_requerido));
             return;
-        }else {
+        } else {
             timeInputLayout.setError(null);
-            timeInputLayout.setErrorEnabled(false); // Esto elimina el espacio del error
+            timeInputLayout.setErrorEnabled(false);
         }
 
         if (tipo.isEmpty()) {
-            mostrarToastUnico("El entrenamiento no puede estar vacío");
-            typeInputLayout.setError("Campo requerido");
+            mostrarToastUnico(getString(R.string.error_tipo_vacio));
+            typeInputLayout.setError(getString(R.string.campo_requerido));
             return;
-        }else {
+        } else {
             typeInputLayout.setError(null);
-            typeInputLayout.setErrorEnabled(false); // Esto elimina el espacio del error
+            typeInputLayout.setErrorEnabled(false);
         }
 
-
-
         if (!validarFecha(fecha)) {
-            mostrarToastUnico("La fecha debe estar en formato \ndd/MM/yyyy y ser válida");
-            dateInputLayout.setError("Debe de tener formato dd/MM/yyyy y ser válida");
+            mostrarToastUnico(getString(R.string.error_fecha_invalida));
+            dateInputLayout.setError(getString(R.string.error_fecha_invalida_campo));
             return;
-        }else {
+        } else {
             dateInputLayout.setError(null);
-            dateInputLayout.setErrorEnabled(false); // Esto elimina el espacio del error
+            dateInputLayout.setErrorEnabled(false);
         }
 
         try {
             float distancia = Float.parseFloat(distanciaStr);
             int tiempo = Integer.parseInt(tiempoStr);
 
-            // Validación: distancia debe ser mayor a 0
             if (distancia <= 0) {
-                mostrarToastUnico("La distancia debe ser mayor a 0");
-                distanceInputLayout.setError("Debe de ser mayor a 0");
+                mostrarToastUnico(getString(R.string.error_distancia_menor_cero));
+                distanceInputLayout.setError(getString(R.string.error_distancia_menor_cero));
                 return;
-            }else {
+            } else {
                 distanceInputLayout.setError(null);
-                distanceInputLayout.setErrorEnabled(false); // Esto elimina el espacio del error
+                distanceInputLayout.setErrorEnabled(false);
             }
 
-            // Validación: tiempo debe ser mayor a 0
             if (tiempo <= 0) {
-                mostrarToastUnico("El tiempo debe ser mayor a 0");
-                timeInputLayout.setError("Debe de ser mayor a 0");
+                mostrarToastUnico(getString(R.string.error_tiempo_menor_cero));
+                timeInputLayout.setError(getString(R.string.error_tiempo_menor_cero));
                 return;
-            }else {
+            } else {
                 timeInputLayout.setError(null);
-                timeInputLayout.setErrorEnabled(false); // Esto elimina el espacio del error
+                timeInputLayout.setErrorEnabled(false);
             }
 
 
@@ -211,13 +207,13 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-            Toast.makeText(this, "Entrenamiento guardado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.entrenamiento_guardado), Toast.LENGTH_SHORT).show();
             finish();
 
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Distancia y tiempo deben ser números válidos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_valores_invalidos), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
-            Toast.makeText(this, "Error al guardar el entrenamiento", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_guardar_entrenamiento), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }

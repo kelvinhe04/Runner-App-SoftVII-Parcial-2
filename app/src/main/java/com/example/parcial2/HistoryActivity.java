@@ -99,7 +99,8 @@ public class HistoryActivity extends AppCompatActivity implements OnTrainingRemo
             listView.setVisibility(trainings.isEmpty() ? ListView.GONE : ListView.VISIBLE);
 
         } catch (Exception e) {
-            Toast.makeText(this, "No hay entrenamientos registrados.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.no_trainings), Toast.LENGTH_SHORT).show();
+
         }
 
 

@@ -16,7 +16,7 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Regresar"
+        android:text="@string/btn_back"
         app:icon="@drawable/icon_back"
         app:cornerRadius="12dp"
         android:layout_marginTop="16dp"
@@ -40,7 +40,7 @@
 
     <Button
         android:id="@+id/motivateButton"
-        android:text="Mostrar Frase Motivadora"
+        android:text="@string/btn_motivate"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginTop="180dp"

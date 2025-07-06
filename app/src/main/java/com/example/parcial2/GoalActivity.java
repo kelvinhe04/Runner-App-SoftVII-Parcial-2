@@ -38,9 +38,9 @@ public class GoalActivity extends AppCompatActivity {
         // Mostrar meta actual si existe
         String currentGoal = prefs.getString("meta", "");
         if (!currentGoal.isEmpty()) {
-            currentGoalText.setText("Meta actual: " + currentGoal);
+            currentGoalText.setText(getString(R.string.current_goal, currentGoal));
         } else {
-            currentGoalText.setText("No has establecido una meta aún.");
+            currentGoalText.setText(getString(R.string.no_goal_set));
         }
 
         // Guardar nueva meta
@@ -49,21 +49,22 @@ public class GoalActivity extends AppCompatActivity {
             String goal = goalInput.getText().toString().trim();
 
             if (goal.isEmpty()) {
-                mostrarToastUnico("Ingresa una meta válida");
+                mostrarToastUnico(getString(R.string.goal_invalid));
             } else if (!goal.matches(".*\\d.*")) {
-                mostrarToastUnico("La meta debe contener al menos un número");
+                mostrarToastUnico(getString(R.string.goal_no_number));
             } else if (goal.equals(metaActual)) {
-                mostrarToastUnico("La meta no ha cambiado");
+                mostrarToastUnico(getString(R.string.goal_not_changed));
             } else if (goal.equals("0")) {
-                mostrarToastUnico("La meta no puede ser 0");
+                mostrarToastUnico(getString(R.string.goal_is_zero));
             } else {
                 prefs.edit().putString("meta", goal).apply();
-                mostrarToastUnico("Meta guardada");
-                currentGoalText.setText("Meta actual: " + goal);
+                mostrarToastUnico(getString(R.string.goal_saved));
+                currentGoalText.setText(getString(R.string.current_goal, goal));
                 goalInput.setText("");
                 Flag.nuevaMeta = true;
                 finish();
             }
+
         });
 
 

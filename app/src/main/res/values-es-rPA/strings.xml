@@ -1,0 +1,142 @@
+<resources>
+    <string name="app_name">Runix</string>
+
+
+    <!--  SplashActivity -->
+    <string name="app_version">Versión 1.0.0</string>
+
+    <!-- 🏠 MainActivity.xml -->
+    <string name="welcome_message">¡Bienvenido, Corredor!</string>
+    <string name="enter_name">👤  Ingresa tu nombre</string>
+    <string name="start_button">Comenzar</string>
+    <!-- 🏠 MainActivity -->
+    <string name="error_empty_name">Ingresa un nombre</string>
+
+
+    <!--  DashboardActivit.xml -->
+    <string name="greeting_message">¡Hola %1$s!</string>
+    <string name="date_sample">Lunes, 2 de Junio</string>
+    <!-- Meta del Mes -->
+    <string name="goal_title">Meta del Mes</string>
+    <string name="meta_del_mes">Meta del mes: %1$s km</string>
+    <string name="goal_completed_message">¡Felicidades!&#10;&#10;Has completado tu meta del mes.</string>
+    <string name="goal_remaining_message">Te faltan %1$s km para alcanzar tu meta</string>
+    <string name="no_goal_defined">No has definido una meta aún.</string>
+    <string name="goal_parse_error">Error al leer la meta.</string>
+    <!-- Botones acciones -->
+    <string name="btn_register_workout">Registrar\nEntrenamiento</string>
+    <string name="btn_motivational_quotes">Frases\nMotivadoras</string>
+    <string name="btn_view_history">Ver\nHistorial</string>
+    <string name="btn_runner_goals">Metas del\nCorredor</string>
+    <!--  DashboardActivit -->
+    <string name="logout_title">¿Deseas cerrar sesión?</string>
+    <string name="logout_message">Esto borrará el usuario actual y todos los registros guardados. Tendrás que iniciar sesión nuevamente con otro usuario.</string>
+    <string name="logout_confirm">Sí</string>
+    <string name="logout_cancel">Cancelar</string>
+    <string name="logout_success">Usuario y registros eliminados</string>
+
+
+
+
+
+
+
+    <!-- RegisterActivity.xml -->
+    <string name="hint_date">📅 Fecha (ej. 29/05/2025)</string>
+    <string name="hint_distance">📏 Distancia (km)</string>
+    <string name="hint_time"> ⏱ Tiempo (min)</string>
+    <string name="hint_type">🏃 Entrenamiento (fondo, series, trote)</string>
+    <string name="save_training_button">Guardar Entrenamiento</string>
+    <!-- RegisterActivity -->
+    <string name="error_fecha_vacia">La fecha no puede estar vacía</string>
+    <string name="error_distancia_vacia">La distancia no puede estar vacía</string>
+    <string name="error_tiempo_vacio">El tiempo no puede estar vacío</string>
+    <string name="error_tipo_vacio">El entrenamiento no puede estar vacío</string>
+
+    <string name="error_fecha_invalida">La fecha debe estar en formato \ndd/MM/yyyy y ser válida</string>
+    <string name="error_fecha_invalida_campo">Debe de tener formato dd/MM/yyyy y ser válida</string>
+
+    <string name="error_distancia_menor_cero">La distancia debe ser mayor a 0</string>
+    <string name="error_tiempo_menor_cero">El tiempo debe ser mayor a 0</string>
+
+    <string name="error_valores_invalidos">Distancia y tiempo deben ser números válidos</string>
+    <string name="error_guardar_entrenamiento">Error al guardar el entrenamiento</string>
+
+    <string name="entrenamiento_guardado">Entrenamiento guardado</string>
+
+    <string name="campo_requerido">Campo requerido</string>
+
+
+
+    <!-- MotivationActivity.xml -->
+    <string name="btn_motivate">Mostrar Frase Motivadora</string>
+    <!-- Frases motivadoras -->
+    <string-array name="motivational_phrases">
+        <item>¡Sigue adelante, cada paso cuenta!</item>
+        <item>El dolor es temporal, la gloria es para siempre.</item>
+        <item>Hoy es un buen día para correr más lejos.</item>
+        <item>Cree en ti. Ya estás más cerca de tu meta.</item>
+        <item>El único mal entrenamiento es el que no haces.</item>
+        <item>No tienes que ir rápido, solo no te detengas.</item>
+        <item>Convierte el cansancio en motivación.</item>
+        <item>Corre con el corazón, no solo con las piernas.</item>
+        <item>Tu único límite eres tú mismo.</item>
+        <item>Cada kilómetro te hace más fuerte.</item>
+        <item>No pares cuando estés cansado, para cuando hayas terminado.</item>
+        <item>El esfuerzo de hoy es el orgullo de mañana.</item>
+        <item>Hazlo por la persona que quieres ser.</item>
+        <item>Corre como si ya fueras un campeón.</item>
+        <item>Una mente fuerte supera un cuerpo cansado.</item>
+        <item>Levántate. Respira. Intenta de nuevo.</item>
+        <item>Entrena duro, brilla más.</item>
+        <item>Nunca subestimes el poder de un buen entrenamiento.</item>
+        <item>Una meta sin esfuerzo es solo un sueño.</item>
+        <item>Hoy, da lo mejor de ti. Mañana, serás mejor.</item>
+    </string-array>
+
+    <string name="motivation_dialog_title">Frase Motivadora 🏃‍♂️</string>
+    <string name="dialog_close_button">Cerrar</string>
+
+
+
+    <!-- GoalActivity.xml-->
+    <string name="btn_back">Regresar</string>
+    <string name="current_goal_label">Meta actual: </string>
+    <string name="goal_input_hint">🏁 Escribe tu meta (ej: Correr 50 km)</string>
+    <string name="save_goal_button">Guardar Meta</string>
+    <!-- GoalActivity -->
+    <string name="current_goal">Meta actual: %1$s</string>
+    <string name="no_goal_set">No has establecido una meta aún.</string>
+    <string name="goal_saved">Meta guardada</string>
+    <string name="goal_not_changed">La meta no ha cambiado</string>
+    <string name="goal_is_zero">La meta no puede ser 0</string>
+    <string name="goal_invalid">Ingresa una meta válida</string>
+    <string name="goal_no_number">La meta debe contener al menos un número</string>
+
+
+    <!-- HistoryActivity.xml -->
+    <string name="no_data_message">¡Sin datos! Empieza a entrenar para ver tu progreso aquí</string>
+    <!-- HistoryActivity -->
+    <string name="no_trainings">No hay entrenamientos registrados.</string>
+
+
+
+
+    <!-- TrainingListviewAdapter -->
+    <string name="training_date">Fecha:</string>
+    <string name="training_distance">Distancia:</string>
+    <string name="training_time">Tiempo:</string>
+    <string name="training_type">Tipo:</string>
+    <string name="training_pace">Ritmo:</string>
+    <string name="training_unit_km">km</string>
+    <string name="training_unit_min">min</string>
+    <string name="training_unit_pace">min/km</string>
+    <string name="toast_training_deleted">Entrenamiento eliminado</string>
+
+
+
+
+
+
+
+</resources>

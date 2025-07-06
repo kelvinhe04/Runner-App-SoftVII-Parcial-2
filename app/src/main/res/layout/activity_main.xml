@@ -22,7 +22,7 @@
         app:lottie_loop="true" />
 
     <TextView
-        android:text="Bienvenido Corredor"
+        android:text="@string/welcome_message"
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_marginHorizontal="70dp"
         android:gravity="left"
         android:textColor="@color/primary"
-        android:hint="👤  Ingresa tu nombre"
+        android:hint="@string/enter_name"
         app:boxCornerRadiusTopStart="12dp"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusBottomStart="12dp"
@@ -66,6 +66,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="210dp"
-        android:text="Comenzar"
+        android:text="@string/start_button"
         android:textSize="16sp" />
 </LinearLayout>
