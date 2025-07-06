@@ -34,3 +34,10 @@ This Android app is designed specifically for runners to track their training se
 2.Open the project in Android Studio.
 
 3.Run the app on an emulator or physical device.
+
+
+
+## 📦 Release
+
+A compiled APK version of the app is available for download in the [Releases](https://github.com/yourusername/runner-fitness-tracker/releases) section of this repository for easy installation on Android devices.
+
